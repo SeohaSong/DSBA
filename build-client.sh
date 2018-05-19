@@ -1,10 +1,9 @@
 
-cd $(ls | grep .client)\
+cd DSBA.client\
 && mv dist dist_\
 && npm run build:prerender\
-&& app_name=\
-&& mv dist_//.git dist/\
+&& mv dist_/DSBA/.git dist/DSBA\
 && rm -rf dist_\
-&& cd dist/\
+&& cd dist/DSBA\
 && (git add .; git commit -m 'update origin master'; git push origin master)
 
