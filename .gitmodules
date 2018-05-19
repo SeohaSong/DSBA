@@ -1,0 +1,3 @@
+[submodule "DSBA.client"]
+	path = DSBA.client
+	url = https://github.com/SeohaSong/DSBA.client.git
