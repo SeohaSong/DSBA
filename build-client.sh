@@ -1,5 +1,5 @@
 (
-    prod_repo_path=~/SEOHASONG/gitfree/seohasong.github.io
+    prod_repo_path=~/SEOHASONG/seohasong.github.io
 
     cd ./DSBA.client\
     && npm run build:prerender\
