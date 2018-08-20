@@ -1,7 +1,7 @@
 (
     prod_repo_path=~/SEOHASONG/seohasong.github.io
 
-    cd ./DSBA.client\
+    cd ./client\
     && npm run build:prerender\
     && rm -rf $prod_repo_path'/DSBA'\
     && mv ./dist/DSBA $prod_repo_path\
