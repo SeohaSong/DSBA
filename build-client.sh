@@ -2,11 +2,11 @@
 
     if [ "$1" = "seohasong" ]
     then
-        repo_path_part='/SEOHASONG/seohasong.github.io/DSBA'
+        repo_path_part='SEOHASONG/seohasong.github.io/DSBA'
         npm_cmd='build:prerender-seohasong'
     elif [ "$1" = "" ]
     then
-        repo_path_part='/SEOHASONG/gitfree/dsba-koreauniv.github.io'
+        repo_path_part='SEOHASONG/gitfree/dsba-koreauniv.github.io'
         npm_cmd='build:prerender'
     else
         exit
@@ -14,9 +14,9 @@
 
     if [[ "$PATH" =~ /mnt/c/Windows/System32 ]]
     then
-        repo_path="/mnt/c/Users/"$(whoami)$repo_path_part
+        repo_path="/mnt/c/Users/"$(whoami)/$repo_path_part
     else
-        repo_path=~$repo_path_part
+        repo_path=~/$repo_path_part
     fi
 
     cd ./client\
