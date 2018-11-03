@@ -1,10 +1,9 @@
 (
-
-    if [ "$1" = "seohasong" ]
+    if [ "$1" = "" ]
     then
         repo_path_part='SEOHASONG/seohasong.github.io/DSBA'
         npm_cmd='build:prerender-seohasong'
-    elif [ "$1" = "" ]
+    elif [ "$1" = "production" ]
     then
         repo_path_part='SEOHASONG/gitfree/dsba-koreauniv.github.io'
         npm_cmd='build:prerender'
