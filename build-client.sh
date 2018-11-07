@@ -20,19 +20,15 @@
         dir_path=~/$dir_path_part
     fi
 
-    echo $dir_path
-
     cname=$(cat $dir_path/CNAME)
 
-    cd ./client\
-    && npm run $npm_cmd\
-    && rm -rf $repo_path/*\
-    && mv ./dist/DSBA/* $repo_path\
-    && rm -rf ./dist\
-    && cd $repo_path\
+    cd ./client \
+    && npm run $npm_cmd \
+    && rm -r $dir_path/* \
+    && mv ./dist/DSBA/* $dir_path \
+    && rm -r ./dist \
+    && cd $dir_path \
     && echo $cname > CNAME
 
-    git add .
-    git commit -m 'update origin master'
-    git push origin master
+    gitgit
 )
