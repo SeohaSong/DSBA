@@ -1,11 +1,13 @@
 (
     if [ "$1" = "" ]
     then
-        repo_path_part='SEOHASONG/seohasong.github.io/DSBA'
+        dir_path_part='SEOHASONG/seohasong.github.io/DSBA'
         npm_cmd='build:prerender-seohasong'
     elif [ "$1" = "production" ]
     then
-        repo_path_part='SEOHASONG/gitfree/dsba-koreauniv.github.io'
+        dir_path_part=$(
+            echo $PWD | sed -e 's/SEOHASONG/\nSEOHASONG/g' | grep SEOHASONG
+        )/dsba-koreauniv.github.io
         npm_cmd='build:prerender'
     else
         exit
@@ -13,12 +15,14 @@
 
     if [[ "$PATH" =~ /mnt/c/Windows/System32 ]]
     then
-        repo_path="/mnt/c/Users/"$(whoami)/$repo_path_part
+        dir_path="/mnt/c/Users/"$(whoami)/$dir_path_part
     else
-        repo_path=~/$repo_path_part
+        dir_path=~/$dir_path_part
     fi
 
-    cname=$(cat $repo_path/CNAME)
+    echo $dir_path
+
+    cname=$(cat $dir_path/CNAME)
 
     cd ./client\
     && npm run $npm_cmd\
