@@ -3,4 +3,4 @@
 	url = https://github.com/SeohaSong/DSBA.client.git
 [submodule "dsba-koreauniv.github.io"]
 	path = dsba-koreauniv.github.io
-	url = https://github.com/dsba-koreauniv/dsba-koreauniv.github.io.git
+	url = git@github.com:dsba-koreauniv/dsba-koreauniv.github.io.git
