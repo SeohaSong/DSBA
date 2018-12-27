@@ -27,6 +27,7 @@
     && mv ./dist/DSBA/* $dir_path \
     && rm -r ./dist \
     && cd $dir_path \
+    && git checkout master \
     && echo $cname > CNAME \
     && gitgit
 )
