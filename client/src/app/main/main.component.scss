@@ -1,0 +1,88 @@
+#dsba-intro-buttons {
+  a {
+    margin: 10px;
+    &:nth-child(3) {
+      background: #482525;
+    }
+    &:nth-child(4) {
+      background: #605B5B;
+    }
+  }
+}
+
+#da-slider {
+  height: 400px;
+  background-color: black;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  &:after {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: " ";
+    position: absolute;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  .da-slide{
+    h2 {
+      top: 65px;
+      i {
+        background-color: rgba(29, 49, 89, 0.6);
+      }
+    }
+    p {
+      top: 265px;
+      z-index: 10;
+      width: 50%;
+    }
+    .da-img {
+      top: 50px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      line-height: unset;
+      padding: 0 calc(25% - 250px) 0 calc(25% - 150px);
+      div{
+        width: 180px;
+        height: auto;
+        margin: 10px 10px;
+        img {
+          width: 100%;
+        }
+        a {
+          img {
+            position: absolute;
+            width: 50px;
+            height: auto;
+            transform: translate(-115px, 50px);
+          }
+        }
+      }
+    }
+  }
+}
+
+#effect-2 figure .img-hover {
+  background-color: #395182;
+}
+
+@media (max-width: 991px) {
+  #da-slider {
+    .da-img {
+      a {
+        display: none;
+      }
+    }
+  }
+  .service-block-v4 {
+    img {
+      display: none;
+    }
+  }
+}
+
+.thumbnail-style h3 a:hover {
+  color: #395182;
+}

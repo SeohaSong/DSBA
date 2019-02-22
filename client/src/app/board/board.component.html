@@ -1,0 +1,193 @@
+<div class="breadcrumbs-v1" style="background-image: url('assets/img/breadcrumbs/hanasquare.jpg')">
+  <div class="container">
+    <span>DSBA</span>
+    <h1>BOARD</h1>
+  </div>
+</div>
+
+<div *ngIf='loading_status' id='dsba-board-loading-box'></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9" id='daba-board'>
+      <div *ngIf='post' class='row'>
+        <ng-container *ngIf='updating_status'>
+          <div class='daba-post-box'>
+            <div class="blog margin-bottom-40">
+              <a (click)='hidePost()'>
+                <div class='dsba-back-btn'><span>←</span></div>
+              </a>
+              <h2>
+                <input [(ngModel)]="updating_title" id='dsba-title-editor' type="text">
+              </h2>
+              <div class="blog-post-tags">
+                <ul class="list-unstyled list-inline blog-info">
+                  <li>
+                    <i class="fa fa-calendar"></i>
+                    {{ post.date }}
+                  </li>
+
+                  <li (click)='toggleEditStatus(post.id)'>
+                    <i class="fa fa-pencil"></i>
+                    {{ post.writer }}
+                  </li>
+
+                  <li>
+                    <i class="fa fa-comments"></i>
+                    {{ post.view_count }} Views
+                  </li>
+                  <li><i class="fa fa-tags"></i> {{ post.category }}</li>
+                </ul>
+              </div>
+              <textarea id='dsba-content-editor' data-editor='w'>
+                {{ post.content }}
+              </textarea>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf='!updating_status'>
+          <ul class="pager pager-v3 pager-sm no-margin-bottom">
+            <li class="previous">
+              <a (click)='turn_post(+1)'>← Newer</a>
+            </li>
+            <li class="page-amount">
+              {{ post.id }} / {{ post_n }}
+            </li>
+            <li class="next">
+              <a (click)='turn_post(-1)'>Older →</a>
+            </li>
+          </ul>
+          <div class='daba-post-box'>
+            <div class="blog margin-bottom-40">
+              <a (click)='hidePost()'>
+                <div class='dsba-back-btn'><span>←</span></div>
+              </a>
+              <h2>{{ post.title }}</h2>
+              <div class="blog-post-tags">
+                <ul class="list-unstyled list-inline blog-info">
+                  <li>
+                    <i class="fa fa-calendar"></i>
+                    {{ post.date }}
+                  </li>
+                  <li (click)='toggleEditStatus(post.id)'>
+                    <i class="fa fa-pencil"></i>
+                    {{ post.writer }}
+                  </li>
+                  <li>
+                    <i class="fa fa-comments"></i>
+                    {{ post.view_count }} Views
+                  </li>
+                  <li><i class="fa fa-tags"></i> {{ post.category }}</li>
+                </ul>
+              </div>
+              <div *ngFor='let img of post.images' class='dsba-post-image'>
+                <a href="{{ img }}" class="fancybox img-hover-v2">
+                  <span>
+                    <img class="img-responsive" src="{{ img }}">
+                  </span>
+                </a>
+              </div>
+              <textarea data-editor='r'>{{ post.content }}</textarea>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="row">
+        <ul *ngIf='!post' class="pager pager-v3 pager-sm no-margin-bottom">
+          <li class="previous">
+            <a (click)='turn_page(-1)'>← Newer</a>
+          </li>
+          <li class="page-amount">{{ page }} of {{ page_length }}</li>
+          <li class="next">
+            <a (click)='turn_page(+1)'>Older →</a>
+          </li>
+        </ul>
+        <br>
+        <div *ngFor='let post of post_group'>
+          <div *ngIf='!post.images.length' class="row">
+            <div class="col-sm-10 news-v3">
+              <div class="news-v3-in-sm no-padding">
+                <ul class="list-inline posted-info">
+                  <li>{{ post.writer }}</li>
+                  <li>In {{ post.category }}</li>
+                  <li>{{ post.date }}</li>
+                </ul>
+                <h2>
+                  <a (click)='showPost(post.id)' data-_scrollToContent>
+                    {{ post.title }}
+                  </a>
+                </h2>
+                <p [innerHTML]="post.preview" class="-preview"></p>
+                <p class="-preview-cover"></p>
+              </div>
+            </div>
+          </div>
+          <div *ngIf='post.images.length' class="row dsba-post-with-photo">
+            <div class="col-sm-7 news-v3">
+              <div class="news-v3-in-sm no-padding">
+                <ul class="list-inline posted-info">
+                  <li>{{ post.writer }}</li>
+                  <li>In {{ post.category }}</li>
+                  <li>{{ post.date }}</li>
+                </ul>
+                <h2>
+                  <a (click)='showPost(post.id)' data-_scrollToContent>
+                    {{ post.title }}
+                  </a>
+                </h2>
+                <p [innerHTML]="post.preview" class="-preview"></p>
+              </div>
+            </div>
+            <div class="col-sm-4 sm-margin-bottom-20">
+              <div class="responsive-video">
+                <img src="{{ post.images[0] }}">
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"><hr></div>
+        </div>
+        <ul class="pager pager-v3 pager-sm no-margin-bottom">
+          <li class="previous">
+            <a (click)='turn_page(-1)'>← Newer</a>
+          </li>
+          <li class="page-amount">{{ page }} of {{ page_length }}</li>
+          <li class="next">
+            <a (click)='turn_page(+1)'>Older →</a>
+          </li>
+        </ul>
+        <br>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div id='dsba-right-nav' data-nav>
+        <div class="headline-v2 bg-color-light"><h2>Latest Posts</h2></div>
+        <ul class="list-unstyled blog-latest-posts margin-bottom-50">
+          <li *ngFor='let post of latest_posts'>
+            <h3><a (click)='showPost(post.id)'>{{ post.title }}</a></h3>
+            <small>{{ post.date }} / <a>{{ post.category }}</a></small>
+          </li>
+        </ul>
+        <div class="headline-v2 bg-color-light"><h2>Categories</h2></div>
+        <ul class="list-inline tags-v2 margin-bottom-50">
+          <li><a routerLink='/board/overall' data-_initScroll8Nav>Overall</a></li>
+          <li><a routerLink='/board/notice' data-_initScroll8Nav>Notice</a></li>
+          <li><a routerLink='/board/news' data-_initScroll8Nav>News</a></li>
+          <li><a routerLink='/board/seminar' data-_initScroll8Nav>Seminar</a></li>
+          <li><a routerLink='/board/photo' data-_initScroll8Nav>Photo</a></li>
+        </ul>
+        <div class="headline-v2 bg-color-light"><h2>Photostream</h2></div>
+        <ul class="list-inline blog-photostream margin-bottom-50">
+          <li *ngFor='let img of images.slice(0, 9)'>
+            <a href="{{ img }}" class="fancybox img-hover-v2">
+              <span>
+                <img class="img-responsive" src="{{ img }}">
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

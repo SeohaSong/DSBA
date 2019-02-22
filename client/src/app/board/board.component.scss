@@ -1,0 +1,134 @@
+@media (min-width: 992px) {
+  #dsba-right-nav {
+    position: fixed;
+    max-width: 270px;
+    width: 25%;
+    padding-top: 30px;
+  }
+}
+@media (max-width: 991px) {
+  #dsba-right-nav {
+    display: block;
+  }
+}
+
+#dsba-board-loading-box {
+  position: absolute;
+  width: 100%;
+  height: 9999px;
+  background: black;
+  z-index: 1;
+}
+
+#daba-board {
+  min-height: 800px;
+  padding: 30px;
+  .daba-post-box {
+    box-shadow: 0.5px 0.5px 2px #ddd;
+    & > div {
+      padding: 15px;
+      margin-top: 15px;
+      .dsba-back-btn {
+        height: 40px;
+        width: 40px;
+        border-radius: 5px;
+        display: inline-block;
+        background-color: #395182;
+        padding-left: 5px;
+        position: relative;
+        span {
+          position: absolute;
+          font-size: 30px;
+          color: white;
+          top: -6px;
+        }
+      }
+      h2 {
+        color: #395182;
+      }
+    }
+    #dsba-title-editor {
+      width: calc(100% + 5px);
+      display: inline-block;
+    }
+    #dsba-content-editor {
+      width: calc(100% + 5px);
+      height: 500px;
+    }
+    .dsba-post-image {
+      max-width: 90%;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      display: inline-block;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .-preview, .-preview-cover {
+    position: relative;
+    height: 60px;
+    overflow: hidden;
+    margin: 0;
+  }
+  .-preview-cover {
+    margin-top: -60px;
+    background-image: linear-gradient(0deg, white, rgba(0, 0, 0, 0));
+  }
+}
+
+.dsba-post-with-photo {
+  min-height: 200px;
+}
+
+.img-hover-v2 img {
+  filter: none;
+}
+
+.blog-photostream li img {
+  height: 78px;
+}
+
+.container.content-md {
+  min-height: 1000px;
+}
+
+.news-v3 h2 a:hover {
+  color: #482525;
+  font-weight: 500;
+}
+
+.news-v3 .post-shares li span {
+  background-color: #395182;
+  min-width: 22px;
+  width: inherit;
+}
+
+.pager-v3 {
+  margin-top: 0px;
+}
+
+.pager.pager-v3 li > a {
+  &:hover, &:focus {
+    background: #395182;
+    border-color: #395182;
+  }
+}
+
+.responsive-video {
+  > img {
+    bottom: -30px;
+    right: 0px;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+  }
+}
+
+.breadcrumbs-v1 {
+  background-color: black;
+  background-size: contain;
+  &:after {
+    background: rgba(0, 0, 0, 0.6);
+  }
+}

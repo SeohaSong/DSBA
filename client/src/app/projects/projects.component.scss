@@ -1,0 +1,45 @@
+[data-pagenation-lst] {
+  display: none;
+  &.in {
+    display: block;
+  }
+}
+
+[data-pagenation-btn] {
+  &.in {
+    .cbp-filter-item {
+      color: #395182;
+      font-weight: 900;
+    }
+  }
+}
+
+
+.dsba-li {
+  display: flex;
+  i, span {
+    display: inline-block;
+  }
+}
+
+.container.content-sm {
+  padding-top: 60px;
+  padding-bottom: 10px;
+}
+
+img {
+  margin-bottom: 10px;
+}
+
+@media (min-width: 992px) {
+  #dsba-right-nav {
+    position: fixed;
+    max-width: 250px;
+    width: calc(25% - 100px);
+  }
+}
+@media (max-width: 991px) {
+  #dsba-right-nav {
+    display: none;
+  }
+}

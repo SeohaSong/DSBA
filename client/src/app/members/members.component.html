@@ -1,0 +1,19 @@
+<div *ngIf='loadingStatus' id='dsba-board-loading-box'></div>
+<div class="container content profile">
+  <div class="row">
+    <div id="dsba-side-nav" class="col-md-3 md-margin-bottom-40">
+      <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
+        <li *ngFor='let type of types' [attr.data-_membersBtn]="type" class="list-group-item">
+          <a [routerLink]="'/members/'+type" data-_initScroll8Nav>
+            {{ type }}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <app-professor *ngIf="checkPage(['professor'])" [pageType]="pageType"></app-professor>
+      <app-students *ngIf="checkPage(['students', 'alumni'])" [pageType]="pageType" [studentPairs]="studentPairs"></app-students>
+    </div>
+  </div>
+</div>

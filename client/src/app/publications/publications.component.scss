@@ -1,0 +1,32 @@
+#accordion-v1 {
+  .accordion-toggle {
+    span {
+      &:nth-child(1){
+        font-weight: 900;
+        color: #395182;
+      }
+      display: inline-block;
+      margin-right: 10px;
+      word-wrap: break-word;
+    }
+    display: flex;
+    background: white;
+  }
+  a {
+    word-wrap: break-word;
+  }
+}
+
+.cube-portfolio .cbp-l-filters-text .cbp-filter-item {
+  &:hover, &.in {
+    color: #395182;
+    font-weight: 900;
+  }
+}
+
+.dsba-publications {
+  display: none;
+  &.in {
+    display: block;
+  }
+}

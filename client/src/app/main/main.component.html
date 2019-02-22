@@ -1,0 +1,182 @@
+<!--=== Slider ===-->
+<div class="slider-inner">
+  <div id="da-slider" class="da-slider"
+  style="background-image: url('assets/img/breadcrumbs/hanasquare.jpg')">
+    <div class="da-slide">
+      <h2><i>DATA SCIENCE &</i> <br /> <i>BUSSINESS ANALYTICS</i> <br /> <i>LAB.</i></h2>
+      <p>
+        <i>School of Industrial Management Engineering,</i> <br />
+        <i>College of Engineering,</i> <br />
+        <i>Korea University</i>
+      </p>
+      <div class="da-img">
+        <div *ngFor='let vid of vids'>
+          <img src="https://img.youtube.com/vi/{{vid}}/0.jpg" alt="">
+          <a href="https://youtu.be/{{vid}}" target="_blank">
+            <img src="assets/img/main/play.png" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div><!--/slider-->
+<!--=== End Slider ===-->
+
+
+<div class="container content-sm">
+  <div class="title-v1 no-margin-bottom">
+    <p class="no-margin-bottom">
+      고려대학교 산업경영공학부 <strong>데이터과학 및 비즈니스 애널리틱스(Data Science & Business Analytics; DSBA)</strong> 연구실 방문을 환영합니다.
+    </p>
+  </div>
+</div>
+<div class="service-block-v4">
+  <div class="container content-sm">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 md-margin-bottom-30">
+          <h2 class="title-v2">ABOUT</h2>
+          <li>
+            본 연구실에서는 <strong>데이터과학 및 비즈니스 애널리틱스</strong> 연구 분야에 산업공학의 다양한 배경 지식을 접목하여 다양한 산학연 공동연구를 수행하고 있습니다. 과거 금을 만들고자 했던 연금술사들의 노력이 과학의 발전을 이끌었듯이 DSBA 연구실에서는 전문성을 갖춘 석/박사 양성 및 다양한 분야 전문가 교육을 통해 모두가 가치 있는 삶을 살 수 있는 사회를 만드는데 기여하고자 합니다.
+          </li>
+          <br>
+          <li>
+            우리는 현재 <strong>빅데이터(Big Data)</strong>와 <strong>사물인터넷(Internet of Things; IoT)</strong>으로 대변되는 데이터 홍수의 시대에 살고 있습니다. 이러한 세계는 사람뿐만 아니라 모든 사물들이 시간과 장소에 구애 받지 않고 네트워크로 연결되는 사회입니다. 본 연구실에서는 이와 같은 초연결 사회에서 산업 및 공공 분야의 정량적 데이터 기반 의사결정을 지원하기 위한 다양한 방법론을 개발하고 이를 응용하는 연구를 수행합니다.
+          </li>
+          <br>
+          <li>
+            본 연구실에서는 데이터의 <strong>수집(Collect)-저장(Store)-관리(Manage)-분석(Analyze)-활용(Apply)</strong>으로 진행되는 일련의 데이터 과학 프로세스의 핵심 요소인 분석 단계에 필수적인 <strong>Data Mining/Machine Learning</strong> 알고리즘을 개발하는 연구를 수행합니다.
+          </li>
+          <br><br>
+          <div id="dsba-intro-buttons">
+            <a routerLink="/researches" class="btn-u btn-brd btn-brd-hover btn-u-dark">Researches</a>
+            <a routerLink="/projects" class="btn-u">Projects</a>
+            <a href="https://www.youtube.com/channel/UCPq01cgCcEwhXl7BvcwIQyg" target="blank_" class="btn-u">Youtube</a>
+            <a href="https://github.com/dsba-koreauniv" target="blank_" class="btn-u">Github</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img class="img-responsive" src="assets/img/main/intro.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div><!--/end container-->
+</div>
+
+
+<!--=== Content Part ===-->
+<div class="container content-sm">
+
+  <div class="headline"><h2>Researches</h2></div>
+  <div class="row margin-bottom-20"
+  *ngFor="let researches of research_groups">
+    <div class="col-md-3 col-sm-6"
+    *ngFor="let research of researches">
+      <div class="thumbnails thumbnail-style">
+        <div class="thumbnail-img">
+          <div class="overflow-hidden">
+            <img class="img-responsive" src="{{research.img}}" alt="">
+          </div>
+          <a routerLink="/researches" data-_initScroll8Nav class="btn-more">
+            read more +
+          </a>
+        </div>
+        <div class="caption">
+          <p>{{research.title}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="headline"><h2>Projects</h2></div>
+  <div class="row margin-bottom-20"
+  *ngFor="let projects of project_groups">
+    <div class="col-md-3 col-sm-6"
+    *ngFor="let project of projects">
+      <div class="thumbnails thumbnail-style">
+        <div class="thumbnail-img">
+          <div class="overflow-hidden">
+            <img class="img-responsive" src="{{project.img}}" alt="">
+          </div>
+          <a routerLink="/projects" data-_initScroll8Nav class="btn-more">
+            read more +
+          </a>
+        </div>
+        <div class="caption">
+          <h3>{{project.term}}</h3>
+          <p>{{project.title}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info Blokcs -->
+  <div class="row margin-bottom-30">
+
+    <div class="col-md-8 md-margin-bottom-40">
+      <div class="headline"><h2>Lab News</h2></div>
+      <div class="row">
+        <div class="col-sm-4">
+          <img class="img-responsive margin-bottom-20" src="assets/img/main/placeholder.jpg" alt="">
+        </div>
+        <div class="col-sm-8">
+          <p>This is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals. It works on all major web browsers, tablets and phone.</p>
+          <ul class="list-unstyled margin-bottom-20">
+            <li *ngFor="let _ of [1, 2, 3, 4]">Donec id elit non mi porta gravida</li>
+          </ul>
+        </div>
+      </div>
+
+      <blockquote class="hero-unify">
+        <p>Award winning digital agency. We bring a personal and effective approach to every project we work on, which is why. Unify is an incredibly beautiful responsive Bootstrap Template for corporate professionals.</p>
+      </blockquote>
+    </div><!--/col-md-8-->
+
+    <!-- Latest Shots -->
+    <div class="col-md-4">
+      <div class="headline"><h2>Latest Shots</h2></div>
+      <div id="myCarousel" class="carousel slide carousel-v1">
+        <div class="carousel-inner">
+          <div class="item {{ shot.active }}"
+          *ngFor="let shot of latestShots">
+            <img src="assets/img/main/members/photo{{ shot.id }}.jpg" alt="">
+            <div class="carousel-caption">
+              <p>{{ shot.description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-arrow">
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </div>
+      </div>
+    </div><!--/col-md-4-->
+  </div>
+  <!-- End Info Blokcs -->
+
+  <!-- Owl Clients v1 -->
+  <div class="container content job-partners">
+    <div class="title-box-v2">
+      <h2><span class="color-green">cooperations</span></h2>
+      <p>Academy, Project, Leture, Client - Relationship</p>
+    </div>
+
+    <ul class="list-inline our-clients" id="effect-2">
+      <li *ngFor='let co of cooperations'>
+        <figure>
+          <img src="{{co.img}}" alt="">
+          <div class="img-hover">
+            <h4>{{co.name}}</h4>
+          </div>
+        </figure>
+      </li>
+    </ul>
+  </div>
+</div><!--/container-->
+<!-- End Content Part -->

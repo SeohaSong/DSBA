@@ -1,0 +1,64 @@
+<div class="container content-sm">
+  <div class="headline-center">
+    <h2>PROJECTS</h2>
+  </div>
+  <div class="content-xs">
+    <div id="filters-container" class="cbp-l-filters-text content-xs">
+      <div class="cbp-filter-item">
+        <br><br>
+        <p>본 연구실에서는 데이터과학 및 비즈니스 애널리틱스 연구 분야에 산업공학의 다양한 배경 지식을 접목하여 다양한 산학연 공동연구를 수행하고 있습니다. 과거 금을 만들고자 했던 연금술사들의 노력이 과학의 발전을 이끌었듯이 DSBA 연구실에서는 전문성을 갖춘 석/박사 양성 및 다양한 분야 전문가 교육을 통해 모두가 가치 있는 삶을 살 수 있는 사회를 만드는데 기여하고자 합니다.</p>
+      </div>
+    </div><!--/end Filters Container-->
+  </div>
+</div>
+
+
+<div class="container content-sm">
+
+  <div class='row'>
+
+    <div class="col-md-3">
+      <div id="dsba-right-nav" class="col-md-12 fixed" data-nav>
+        <div class="headline-v2"><h2>Korea University<br>(연구책임자)</h2></div>
+        <ul *ngFor='let dataGroup of dataGroups; let i=index' [attr.data-pagenation-lst]='i' class="list-unstyled blog-trending margin-bottom-50">
+          <li *ngFor='let data of dataGroup'>
+            <a [attr.data-section]="data.id">
+              <h3>{{data.title}}</h3>
+            </a>
+          </li>
+        </ul>
+        <div *ngIf="isPagination()" class="cbp-l-filters-text content-xs" id="filters-container">
+          <span *ngFor='let dataGroup of dataGroups; let i=index' [attr.data-pagenation-btn]='i'>
+            <span *ngIf='i'>|</span>
+            <a><div class="cbp-filter-item">{{ i+1 }}</div></a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class='col-md-9'>
+      <div class="row" *ngFor='let data of datas'>
+        <div class="col-md-12 md-margin-bottom-50" [attr.data-section]="data.id">
+          <img class="img-responsive" src='{{data.img}}' alt="">
+        </div>
+        <div class="col-md-12">
+          <div class="headline-left margin-bottom-30">
+            <h3 class="headline-brd">{{data.term}} : {{data.title}}</h3>
+          </div>
+          <ul *ngFor='let content of data.contents' class="list-unstyled lists-v2 margin-bottom-30">
+            <h4 *ngIf='content.title'>
+              {{content.title}}
+            </h4>
+            <li *ngFor='let content_ of content.contents' class='dsba-li'>
+              <i class="fa fa-check"></i>
+              <span>{{content_}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>

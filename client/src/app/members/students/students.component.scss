@@ -1,0 +1,25 @@
+.profile-body.margin-bottom-20 >
+.row.margin-bottom-20 >
+.col-sm-6.sm-margin-bottom-20 {
+  .profile-blog {
+    img {
+      height: auto;
+    }
+    span > i {
+      position: relative;
+      font-size: 13px;
+    }
+    ul > li {
+      width: 100%;
+      margin-left: 5px;
+      padding-left: 0px;
+      i {
+        width: 15px;
+      }
+    }
+  }
+}
+
+.profile-body .panel-heading h2{
+  text-transform: capitalize;
+}

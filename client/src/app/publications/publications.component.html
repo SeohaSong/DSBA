@@ -1,0 +1,53 @@
+<div class="container content-sm">
+  <div class="headline-center">
+    <h2>PUBLICATIONS</h2>
+  </div>
+</div>
+
+<div class="cube-portfolio container margin-bottom-60">
+  <div class="content-xs">
+    <div id="filters-container" class="cbp-l-filters-text content-xs">
+      <p>Citation summaries in <a href="https://scholar.google.com/citations?user=I2pcWZIAAAAJ&hl=en" target=black_>Google scholar</a></p>
+    </div>
+    <div id="filters-container" class="cbp-l-filters-text content-xs">
+      <span>|</span>
+      <span *ngFor="let pub of publications">
+        <a routerLink="/publications/{{pub.type}}">
+          <div [attr.data-type0]="pub.type" class="cbp-filter-item"> {{pub.title}} </div>
+        </a>
+        <span>|</span>
+      </span>
+    </div>
+  </div>
+
+  <div *ngFor="let pub of publications" [attr.data-type0]="pub.type" class="row dsba-publications">
+    <div class="col-md-12">
+      <div class="tab-v1">
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+            <div id="accordion-v1" class="panel-group acc-v1">
+              <div *ngFor="let content of pub.contents; let i=index" class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a href="#collapse-{{i}}" class="accordion-toggle" data-parent="#accordion-v1" data-toggle="collapse">
+                      <span>{{i+1}}.</span>
+                      <span>{{content.content}}</span>
+                    </a>
+                  </h4>
+                </div>
+                <div *ngIf="content.url" class="panel-collapse collapse" id="collapse-{{i}}">
+                  <div class="panel-body">
+                    <a href="{{content.url}}" target='black_'>
+                      {{content.url}}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

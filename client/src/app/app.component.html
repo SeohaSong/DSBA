@@ -1,0 +1,160 @@
+<div class="wrapper">
+  <div class="header">
+    <div class="container">
+      <a class="logo" routerLink="/main" data-_initScroll8Nav>
+        <img class='dsba-logo' src="assets/img/custom/ku_logo.png" alt="Logo">
+        <img class='dsba-logo' src="assets/img/custom/dsba_logo.png" alt="Logo">
+      </a>
+
+      <div class="topbar">
+        <ul class="loginbar pull-right">
+          <li>
+            <ng-container *ngIf="currentUser">
+              <a>{{currentUser.displayName}}</a>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <a (click)='signOut()'>로그아웃</a>
+              &nbsp;&nbsp;
+              <a routerLink='/uploader'>글쓰기</a>
+            </ng-container>
+            <a *ngIf="!currentUser" (click)='signIn()'>google 계정으로 로그인</a>
+          </li>
+        </ul>
+      </div>
+
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="fa fa-bars"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <ng-template ngFor let-category [ngForOf]='categories'>
+            <li *ngIf='!category.lv0content.link' [attr.data-_category]="category.lv0content.title" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown">
+                {{ category.lv0content.title }}
+              </a>
+              <ul class="dropdown-menu">
+                <li *ngFor='let content of category.lv1content'>
+                  <a [routerLink]="content.link" data-_initScroll8Nav>
+                    {{ content.title }}
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li *ngIf='category.lv0content.link' [attr.data-_category]="category.lv0content.title">
+              <a [routerLink]="category.lv0content.title"  data-_initScroll8Nav>
+                {{ category.lv0content.title }}
+              </a>
+            </li>
+          </ng-template>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id='dsba-back-header'></div>
+
+  <router-outlet></router-outlet>
+
+  <!--=== Footer Version 1 ===-->
+  <div class="footer-v1">
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- About -->
+          <div class="col-md-3 md-margin-bottom-40">
+            <a routerLink="">
+              <img id="logo-footer" class="footer-logo"
+              src="assets/img/custom/dsba_logo.png" height=40>
+            </a>
+            <p>Data Science & Business Analytics Lab</p>
+            <p>School of Industrial Management Engineering</p>
+            <p>College of Engineering, Korea University</p>
+          </div><!--/col-md-3-->
+          <!-- End About -->
+
+          <!-- Latest -->
+          <div class="col-md-3 md-margin-bottom-40">
+            <div class="posts">
+              <div class="headline"><h2>Latest Posts</h2></div>
+              <ul class="list-unstyled latest-list">
+                <li>
+                  <a href="#">2018 대한산업공학회 춘계학술대회 - 손규빈</a>
+                  <small>May 8, 2014</small>
+                </li>
+                <li>
+                  <a href="#">17. 01. 23 NC soft AI center workshop – 박재선</a>
+                  <small>June 23, 2014</small>
+                </li>
+                <li>
+                  <a href="#">[DeepNLP]1&2. Introduction & word vector</a>
+                  <small>September 15, 2014</small>
+                </li>
+              </ul>
+            </div>
+          </div><!--/col-md-3-->
+          <!-- End Latest -->
+
+          <!-- Link List -->
+          <div class="col-md-3 md-margin-bottom-40">
+            <div class="headline"><h2>Useful Links</h2></div>
+            <ul class="list-unstyled link-list">
+              <li>
+                <a routerLink='members/overall'>members</a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a routerLink='researches'>researches</a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a routerLink='publications'>publications</a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a routerLink='projects'>projects</a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a routerLink='boards'>activities</a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+            </ul>
+          </div><!--/col-md-3-->
+          <!-- End Link List -->
+
+          <!-- Address -->
+          <div class="col-md-3 map-img md-margin-bottom-40">
+            <div class="headline"><h2>Contact Us</h2></div>
+            <address class="md-margin-bottom-40">
+              대한민국 서울특별시 성북구 안암로 145 <br />
+              고려대학교 신공학관 220호 <br />
+              Tel: +82-(0)2-3290-3775 <br />
+              Email:
+              <a href="mailto:dsba@korea.ac.kr" class="">
+                pilsung_kang@korea.ac.kr
+              </a>
+            </address>
+          </div><!--/col-md-3-->
+          <!-- End Address -->
+        </div>
+      </div>
+    </div><!--/footer-->
+
+    <div class="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p>
+              <a href="http://163.152.174.143" target="black_">2018 &copy; Data Science & Business Analytics Lab.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div><!--/copyright-->
+  </div>
+  <!--=== End Footer Version 1 ===-->
+</div><!--/wrapper-->
+
+<div id="loading-ui"></div>
