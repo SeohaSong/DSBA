@@ -673,31 +673,35 @@ export class DatabaseService {
       title: 'International Journal',
       contents: [
         {
-          content: "Donghwa Kim, Deokseong Seo, Suhyoun Cho, Pilsung Kang*. (2019). Multi-co-training for document classification using various document representations: TF–IDF, LDA, and Doc2Vec, Information Sciences 477, 15-29. (SCI).",
-          url: null
+          content: "Junhong Kim, Hyungseok Kim, Jaeseon Park, Kyounghyun Mo, and Pilsung Kang*. (2019). Bin2Vec: A Better Wafer Bin Map Coloring Scheme for Comprehensible Visualization and Effective Bad Wafer Classification. Applied Sciences, 9(3), 597. (SCIE)",
+          url: "https://www.mdpi.com/2076-3417/9/3/597"
+        },
+        {
+          content: "Donghwa Kim, Deokseong Seo, Suhyoun Cho and Pilsung Kang*. (2019). Multi-co-training for document classification using various document representations: TF–IDF, LDA, and Doc2Vec, Information Sciences 477, 15-29. (SCI).",
+          url: "https://www.sciencedirect.com/science/article/pii/S0020025518308028"
         },
         {
           content: "Junhong Kim and Pilsung Kang*. (2018). Analyzing International Collaboration and Identifying Core Topics for the \"Internet of Things\" based on Network Analysis and Topic Modeling, International Journal of Industrial Engineering: Theory, Applications and Practice 25(3), 349-369. (SCIE)",
-          url: null
+          url: "http://eds.a.ebscohost.com/abstract?site=eds&scope=site&jrnl=10724761&AN=132768171&h=nrTr5KpSmSFM5pxVICa7eRd26X3yHChMG9Z33O5lzLjiUx9rPwzok30mAKvNeO%2bzNRIugSuTiYGfR0OM7wIJLg%3d%3d&crl=c&resultLocal=ErrCrlNoResults&resultNs=Ehost&crlhashurl=login.aspx%3fdirect%3dtrue%26profile%3dehost%26scope%3dsite%26authtype%3dcrawler%26jrnl%3d10724761%26AN%3d132768171"
         },
         {
           content: "Hakyeon Lee and Pilsung Kang*. (2018). Identifying core topics in technology and innovation management studies: A topic model approach, Journal of Technology Transfer 43(5), 1291-1317. (SSCI)",
-          url: null
+          url: "https://link.springer.com/article/10.1007/s10961-017-9561-4"
         },
         {
           content: "Seokho Kang and Pilsung Kang*. (2018). Locally linear embedding for regression, Information Sciences 432, 199-209. (SCI).",
           url: "https://www.sciencedirect.com/science/article/pii/S0020025517303420"
         },
         {
-          content: "Gichang Lee, Jaeyun Jeong, Seungwan Seo, Czang Yeob Kim, and Pilsung Kang*. (2018). Sentiment classification with word localization based on weakly supervised learning with a convolutional neural network, Knowledge-based Systems 152, 70-82. (SCI).",
+          content: "Gichang Lee, Jaeyun Jeong, Seungwan Seo, Czang Yeob Kim and Pilsung Kang*. (2018). Sentiment classification with word localization based on weakly supervised learning with a convolutional neural network, Knowledge-based Systems 152, 70-82. (SCI).",
           url: "https://www.sciencedirect.com/science/article/pii/S0950705118301710"
         },
         {
-          content: "Junhong Kim, Haedong Kim, and Pilsung Kang*. (2018). Keystroke dynamics-based user authentication using freely typed text based on user-adaptive feature extraction and novelty detection, Applied Soft Computing 62, 1077-1087. (SCIE).",
+          content: "Junhong Kim, Haedong Kim and Pilsung Kang*. (2018). Keystroke dynamics-based user authentication using freely typed text based on user-adaptive feature extraction and novelty detection, Applied Soft Computing 62, 1077-1087. (SCIE).",
           url: "https://www.sciencedirect.com/science/article/pii/S1568494617305847"
         },
         {
-          content: "Boseop Kim, Hakyeon Lee, and Pilsung Kang*. (2018). Integrating cluster validity indices based on data envelopment analysis, Applied Soft Computing 64, 94-108. (SCIE).",
+          content: "Boseop Kim, Hakyeon Lee and Pilsung Kang*. (2018). Integrating cluster validity indices based on data envelopment analysis, Applied Soft Computing 64, 94-108. (SCIE).",
           url: "https://www.sciencedirect.com/science/article/pii/S1568494617307202"
         },
         {
@@ -714,7 +718,7 @@ export class DatabaseService {
         },
         {
           content: "Seokho Kang and Pilsung Kang*. (2017). An intelligent virtual metrology system with adaptive update for semiconductor manufacturing, Journal of Process Control 52: 66-74.",
-          url: null
+          url: "https://www.sciencedirect.com/science/article/pii/S0959152417300288"
         },
         {
           content: "Minhoe Hur, Pilsung Kang, and Sungzoon Cho*. (2016). Box-office forecasting using independent subspace method based on sentiment of movie reviews, Information Sciences 372: 608-624. (SCI).",

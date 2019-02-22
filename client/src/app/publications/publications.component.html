@@ -29,18 +29,12 @@
               <div *ngFor="let content of pub.contents; let i=index" class="panel panel-default">
                 <div class="panel-heading">
                   <h4 class="panel-title">
-                    <a href="#collapse-{{i}}" class="accordion-toggle" data-parent="#accordion-v1" data-toggle="collapse">
+                    <a class="accordion-toggle">
                       <span>{{i+1}}.</span>
                       <span>{{content.content}}</span>
+                      <!-- <a href="{{content.url}}" target="_blank"></a> -->
                     </a>
                   </h4>
-                </div>
-                <div *ngIf="content.url" class="panel-collapse collapse" id="collapse-{{i}}">
-                  <div class="panel-body">
-                    <a href="{{content.url}}" target='black_'>
-                      {{content.url}}
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
