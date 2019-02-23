@@ -1,13 +1,15 @@
 #accordion-v1 {
   .accordion-toggle {
-    span {
+    * {
       &:nth-child(1){
         font-weight: 900;
         color: #395182;
       }
+      color: black;
       display: inline-block;
       margin-right: 10px;
       word-wrap: break-word;
+      padding: 0;
     }
     display: flex;
     background: white;
