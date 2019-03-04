@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core'
 
-import { UtilsService } from "../_services/utils.service"
 import { DisplayService } from "../_services/display.service"
 
 
@@ -12,7 +11,6 @@ import { DisplayService } from "../_services/display.service"
 export class ResearchesComponent implements OnInit {
 
   constructor(
-    private utilsService: UtilsService,
     private displayService: DisplayService
   ) { }
 

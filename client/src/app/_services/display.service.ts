@@ -3,10 +3,7 @@ import { Location } from '@angular/common'
 import { isPlatformBrowser } from '@angular/common'
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core'
 
-import { UtilsService } from './utils.service'
 import { DatabaseService } from "./database.service"
-import { resolve } from 'url';
-import { strictEqual } from 'assert';
 
 
 declare const App: any
@@ -17,6 +14,7 @@ declare const OwlCarousel: any
 declare const $: any
 declare const db: any
 declare const auth: any
+declare const tinymce: any
 declare const firebase: any
 
 
@@ -30,7 +28,7 @@ export class DisplayService {
     private router: Router,
     private location: Location,
     private databaseService :DatabaseService,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) { }
 
 
@@ -41,7 +39,7 @@ export class DisplayService {
     let pipes = this.router.url.split("?")[0].split("/")
     return pipes[pipes.length-1]
   }
-  _groupList(size, list){
+  _groupList = (size, list) => {
     let groups = []
     let group_idxs = []
     let n_group = parseInt(""+(list.length-1)/size)+1
@@ -54,24 +52,6 @@ export class DisplayService {
     }
     return groups
   }
-
-
-  _initDisplay(resolve) {
-    $("[data-_initScroll8Nav]").click(() => {
-      $(document).scrollTop(0)
-      $('.navbar-collapse.mega-menu.navbar-responsive-collapse.collapse')
-      .removeClass("in")
-    })
-    resolve()
-  }
-  _startPage(loadData) {
-    return new Promise(resolve => {
-      if (isPlatformBrowser(this.platformId)) loadData(resolve)
-    })
-    .then(() => new Promise(this._initDisplay))
-  }
-
-
   _initScroll(doc, top_pad, bottom_pad) {
     let nav = $("[data-nav]")
     let init_top = parseInt(nav.css('top'))
@@ -90,25 +70,75 @@ export class DisplayService {
     doc.on('scroll resize', run)
     setTimeout(run)
   }
+  _setEditorContent = content => {
+    let editor = tinymce.activeEditor
+    if (editor) editor.setContent(content)
+  }
+  _updateViewCount = () => {
+    console.log('뷰카운트 업데이트는 서버측에서 작업해야함');
+  }
+  setEditor() {
+    setTimeout(() => {
+      tinymce.remove();
+      tinymce.init({
+        selector: '[data-editor=w]',
+        plugins : 'lists link image charmap preview hr table code autoresize',
+        menubar: false,
+        toolbar: "undo redo | formatselect | bold italic | underline strikethrough | charmap link image | alignleft aligncenter alignright | outdent indent | bullist numlist | preview code | hr table",
+        default_link_target: "_blank"
+      });
+      tinymce.init({
+        selector: '[data-editor=r]',
+        plugins : 'autoresize',
+        readonly: true,
+        toolbar: false,
+        menubar: false,
+        statusbar: false,
+        default_link_target: "_blank"
+      });
+    });
+  }
+  _getUserID = () => {
+    if (auth.currentUser) return auth.currentUser.uid
+  }
+  _savePost = (board, idx) => {
+    let title = board.updating_title
+    let content = tinymce.activeEditor.getContent({format : 'raw'})
+    db.collection('posts').doc(board.posts[idx].id).set({
+      title: title,
+      content: content
+    },{merge: true})
+    return [title, content]
+  }
+
+  _startPage(loadData) {
+    return new Promise(resolve => {
+      if (isPlatformBrowser(this.platformId)) loadData(resolve)
+    })
+    .then(() => new Promise(resolve => {
+      $("[data-_initScroll8Nav]").click(() => {
+        $(document).scrollTop(0)
+        $('.navbar-collapse.mega-menu.navbar-responsive-collapse.collapse')
+        .removeClass("in")
+      })
+      resolve()
+    }))
+  }
 
 
   startApp(app) {
-
-    let getUrlHead = this._getUrlHead
 
     app.signIn = () => {
       let provider = new firebase.auth.GoogleAuthProvider()
       auth.languageCode = 'ko-KR'
       auth.signInWithRedirect(provider)
     }
-
     app.signOut = () => {
       auth.signOut()
       this.router.navigate(['main'])
     }
 
     if (isPlatformBrowser(this.platformId)) {
-
       new Promise(resolve => {
         app.categories = this.databaseService.categories
         resolve()
@@ -118,14 +148,13 @@ export class DisplayService {
         FancyBox.initFancybox()
         StyleSwitcher.initStyleSwitcher()
         this.router.events.subscribe(() => {
-          let head = getUrlHead()
+          let head = this._getUrlHead()
           if (head) {
             $("[data-_category]").removeClass("active")
             $("[data-_category="+head+"]").addClass('active')
           }
         })
       })
-
       let intervalId = setInterval(() => console.log('인증 과정이 진행중입니다.'))
       let _closeProcess = (message) => {
         app.currentUser = auth.currentUser
@@ -176,25 +205,6 @@ export class DisplayService {
       return false;
     }
 
-    let turnPage = (() => {
-      let tail = this._getUrlTail()
-      $("[data-_membersBtn]").removeClass("active")
-      $("[data-_membersBtn="+tail+"]").addClass("active")
-      this.router.navigate(['members', tail]).then(() => {
-        component.pageType = tail
-        let members: any[]
-        let overall = component.totalStudents.slice()
-        let students = overall.filter(val => val.type == 'students')
-        let alumni = overall.filter(val => val.type == 'alumni').reverse()
-        if (tail == 'overall') members = students.concat(alumni)
-        if (tail == 'students') members = students
-        if (tail == 'alumni') members = alumni
-        if (tail != 'professor') {
-          component.studentPairs = this._groupList(2, members)
-        }
-      })
-    })
-
     let loadData = resolve => {
       let statuses = [
         "Ph.D. Candidate",
@@ -218,6 +228,24 @@ export class DisplayService {
       })
     }
     this._startPage(loadData).then(() => {
+      let turnPage = () => {
+        let tail = this._getUrlTail()
+        $("[data-_membersBtn]").removeClass("active")
+        $("[data-_membersBtn="+tail+"]").addClass("active")
+        this.router.navigate(['members', tail]).then(() => {
+          component.pageType = tail
+          let members: any[]
+          let overall = component.totalStudents.slice()
+          let students = overall.filter(val => val.type == 'students')
+          let alumni = overall.filter(val => val.type == 'alumni').reverse()
+          if (tail == 'overall') members = students.concat(alumni)
+          if (tail == 'students') members = students
+          if (tail == 'alumni') members = alumni
+          if (tail != 'professor') {
+            component.studentPairs = this._groupList(2, members)
+          }
+        })
+      }
       $("[href^='/members']").click(() => turnPage())
       turnPage()
     })
@@ -233,7 +261,6 @@ export class DisplayService {
         doc.scrollTop(scroll_top-top_pad)
       })
     }
-
     let initPagenation = () => {
       let lsts = $("[data-pagenation-lst]")
       let btns = $("[data-pagenation-btn]")
@@ -286,78 +313,122 @@ export class DisplayService {
     })
   }
 
-
   initBoard(component) {
 
-    component.turn_page = (change=0) => {
-      let maxPage = component.page_length;
-      let post_groups = component.post_groups;
-      let updatedUrl = getUpdatedUrl(k2v => {
-        let page = k2v["page"]
-        let postId = k2v["postId"]
-
-        if (!page) {page = 1} else {page = parseInt(page)+change}
-        if(page < 1) {k2v["page"] = 1}
-        else if (page > maxPage) {k2v["page"] = maxPage}
-        else {k2v["page"] = page}
-
-        if (postId) k2v["postId"] = parseInt(postId)
-
-        component.page = k2v["page"]
-        component.post_id = k2v["postId"]
-      })
-      component.post_group = post_groups[component.page-1];
-      component.location.go(updatedUrl);
-    }
-
     let getUpdatedUrl = f => {
-      let [updatedUrl, pStr] = this.location.path().split('?')
-      let k2v = {}
-      if(pStr){
-        pStr.split('&').forEach(a => {
-          let [k, v] = a.split("=")
-          k2v[k] = v
-        })
-      }
-      f(k2v)
+      let url = this.location.path()
+      let updatedUrl = url.split('?')[0]
+      let paramMap = this.router.parseUrl(url).queryParams
+      f(paramMap)
       updatedUrl += "?"
-      updatedUrl += Object.keys(k2v).map(k => [k, k2v[k]].join("=")).join("&")
+      let keys = Object.keys(paramMap)
+      updatedUrl += keys.map(k => [k, paramMap[k]].join("=")).join("&")
       return updatedUrl
     }
-
-    let getPreview = (content) => {
+    let getPreview = content => {
       let txt = content.replace(/<.+?>/g, " ")
       let preview = txt.slice(0, 200)+" ..."
       return preview
     }
 
+    component.category = this.router.url.split("?")[0].split("/").reverse()[0]
+    component.initPost = () => {
+      let url = this.location.path()
+      let idx = this.router.parseUrl(url).queryParams['postIdx']
+      if (!isNaN(idx)) component.showPost(idx)
+    }
+    component.initPage = () => {
+      let url = getUpdatedUrl(paramMap => {
+        let page = parseInt(paramMap["page"])
+        if (isNaN(page)) paramMap["page"] = page = 1
+        component.post_group = component.post_groups[page-1]
+      })
+      this.location.go(url)
+    }
+    component.turnPage = change => {
+      let post_groups = component.post_groups;
+      let url = getUpdatedUrl(paramMap => {
+        let page = parseInt(paramMap["page"])
+        let cond1 = change < 0 && 1 < page
+        let cond2 = change > 0 && post_groups.length > page
+        if (cond1 || cond2) {page+=change
+                             paramMap["page"] = page
+                             component.post_group = post_groups[page-1]}        
+      })
+      this.location.go(url)
+    }
+    component.turnPost = change => {
+      let posts = component.posts
+      let url = getUpdatedUrl(paramMap => {
+        let idx = parseInt(paramMap["postIdx"])
+        let cond1 = change < 0 && 0 < idx
+        let cond2 = change > 0 && posts.length-1 > idx
+        if (cond1 || cond2) {idx += change
+                             paramMap["postIdx"] = idx
+                             component.post = posts[idx]}
+      })
+      this.location.go(url)
+    }
+    component.showPost = idx => {
+      component.updating_status = false
+      component.post = component.posts[idx]
+      this._setEditorContent(component.post.content)
+      let url = getUpdatedUrl(paramMap => paramMap["postIdx"] = idx)
+      this.location.go(url)
+      this._updateViewCount()
+      this.setEditor()
+    }
+    component.hidePost = () => {
+      component.updating_status = false
+      component.post = null
+      let url = getUpdatedUrl(paramMap => delete paramMap["postIdx"])
+      this.location.go(url)
+    }
+    component.toggleEditStatus = idx => {
+      let uid = this._getUserID()
+      if (uid) {
+        if (component.updating_status) {
+          let post = component.posts[idx];
+          [post.title, post.content] = this._savePost(component, idx);
+        } else {
+          let post = component.posts[idx];
+          component.updating_title = post.title;
+        }
+        new Promise((resolve, reject) => {
+          resolve(component.updating_status = !component.updating_status)
+        }).then(() => this.setEditor());
+      } else alert('권한이 없습니다.')
+    }
+    component.deletePost = () => {
+      if (confirm('삭제합니까?')) alert(
+        '서버에서 직접 삭제하세요.삭제 방법은 가이드북을 참조하세요. (%VALUE%)'
+        .replace('%VALUE%', component.post.id)
+      )
+    }
+  
     let loadData = resolve => {
       let category = component.category
-      let all_posts = component.all_posts
       let posts = component.posts
       let images = component.images
-      let id2id = component.id2id
-      let id = 0
-      db.collection("posts").orderBy('date').get().then(data => {
+      let ref: any
+      if (category == "overall") ref = db.collection("posts")
+      else ref = db.collection("posts").where("category", "==", category)
+      ref.orderBy('date', 'desc').get().then(data => {
+        let idx = 0
         data.forEach(post_ => {
-          id += 1
-          id2id[id] = post_.id
           let post = post_.data()
-          post.id = id
+          post.idx = idx
+          post.id = post_.id
           post.preview = getPreview(post.content)
-          all_posts[id] = post
           post.images.forEach(img => images.push(img))
           posts.push(post)
+          idx += 1
         })
-        posts.reverse()
-        if (category != 'overall') {
-          component.posts = posts.filter(post => post.category == category)
-        }
-        component.post_n = Object.keys(all_posts).length
-        component.post_groups = this._groupList(10, component.posts)
-        component.page_length = component.post_groups.length
-        component.turn_page()
-        if (component.post_id) {component.showPost(component.post_id)}
+        let post_groups = this._groupList(5, component.posts)
+        for (let i=0; i < post_groups.length; i++) post_groups[i].page = i+1
+        component.post_groups = post_groups
+        component.initPage()
+        component.initPost()
         component.latest_posts = component.posts.slice(0, 2)
         resolve()
       })
@@ -366,7 +437,7 @@ export class DisplayService {
       component.loading_status = false
       let doc = $(document)
       this._initScroll(doc, 80, 425)
-      // ng for 이 랜더링 이후에 적용가능하도록.
+      // ng for를 통한 랜더링 이후에 아래 스크립트가 적용 되도록.
       setTimeout(() => {
         let top = 0
         top += $('#daba-board').offset()['top']
