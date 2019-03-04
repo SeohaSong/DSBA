@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 
-import { DisplayService } from "../_services/display.service";
+import { DisplayService } from "../_services/display.service"
 
 
 @Component({
@@ -14,17 +14,17 @@ export class BoardComponent implements OnInit {
     private displayService: DisplayService,
   ) { }
 
-  posts = [];
-  post: any;
-  post_groups: any;
-  post_group: any;
-  latest_posts: any;
-  images = [];
+  post: any
+  posts = []
+  post_group: any
+  post_groups: any
+  images = []
+  latest_posts: any
+  loading_status = true
+  updating_title: string
+  updating_status = false
 
-  updating_status = false;
-  updating_title: string;
-
-  loading_status = true;
+  turnPage: Function
 
   ngOnInit() {
     this.displayService.initBoard(this)

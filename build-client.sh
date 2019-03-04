@@ -16,7 +16,6 @@
     )
     cd ..
     gitgit
-    
 )
 
 # "build:client-and-server-bundles-seohasong": "ng build --base-href /DSBA/ --prod && ng run client:server"
