@@ -9,12 +9,14 @@
         echo dsba.korea.ac.kr > $dir_path/CNAME
     }
     rm -r ./dist
+
+    cd ..
+    cp ./scripts/google* $dir_path
     (
         cd $dir_path
         git checkout master
         gitgit
     )
-    cd ..
     gitgit
 )
 
