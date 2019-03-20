@@ -210,7 +210,8 @@ export class DisplayService {
         "Ph.D. Student",
         "Integrated M.S/Ph.D. Candidate",
         "Integrated M.S/Ph.D. Student",
-        "M.S. Student"
+        "M.S. Candidate",
+        "M.S. Student",
       ]
       db.collection("members").get().then(data => {
         let objs = []
