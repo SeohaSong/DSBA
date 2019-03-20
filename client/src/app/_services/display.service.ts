@@ -23,14 +23,13 @@ declare const firebase: any
 })
 export class DisplayService {
 
-
   constructor(
     private router: Router,
     private location: Location,
     private databaseService :DatabaseService,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) { }
-
+  
 
   _getUrlHead = () => {
     return this.router.url.split("?")[0].split("/")[1]

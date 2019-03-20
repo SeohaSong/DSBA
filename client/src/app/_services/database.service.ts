@@ -673,7 +673,11 @@ export class DatabaseService {
       title: 'International Journal',
       contents: [
         {
-          content: "Junhong Kim, Hyungseok Kim, Jaeseon Park, Kyounghyun Mo, and Pilsung Kang*. (2019). Bin2Vec: A Better Wafer Bin Map Coloring Scheme for Comprehensible Visualization and Effective Bad Wafer Classification. Applied Sciences, 9(3), 597. (SCIE)",
+          content: "Eunjeong L. Park, Sungzoon Cho, and Pilsung Kang*. (2019). Supervised Paragraph Vector: distributed representations of words, documents and class labels. IEEE Access 7, 29051-29064. (SCIE)",
+          url: "https://ieeexplore.ieee.org/abstract/document/8653834"
+        },
+        {
+          content: "Junhong Kim, Hyungseok Kim, Jaeseon Park, Kyounghyun Mo, and Pilsung Kang*. (2019). Bin2Vec: A Better Wafer Bin Map Coloring Scheme for Comprehensible Visualization and Effective Bad Wafer Classification. Applied Sciences 9(3), 597. (SCIE)",
           url: "https://www.mdpi.com/2076-3417/9/3/597"
         },
         {
@@ -689,7 +693,7 @@ export class DatabaseService {
           url: "https://link.springer.com/article/10.1007/s10961-017-9561-4"
         },
         {
-          content: "Seokho Kang and Pilsung Kang*. (2018). Locally linear embedding for regression, Information Sciences 432, 199-209. (SCI).",
+          content: "Seokho Kang and Pilsung Kang*. (2018). Locally linear ensemble for regression, Information Sciences 432, 199-209. (SCI).",
           url: "https://www.sciencedirect.com/science/article/pii/S0020025517303420"
         },
         {
@@ -733,8 +737,8 @@ export class DatabaseService {
           url: "http://www.sciencedirect.com/science/article/pii/S0957417415008295"
         },
         {
-          content: "Taegu Kim, Jungsik Hong, and Pilsung Kang*. (2015). Forecasting box office using machine learning algorithms based on SNS data,International Journal of Forecasting 31(2): 364-390. (April-June). (SSCI).",
-          url: "http://ac.els-cdn.com/S0169207014000971/1-s2.0-S0169207014000971-main.pdf?_tid=87ba2ba6-ab69-11e4-8eee-00000aacb360&acdnat=1422943226_7fee434e547d05cd44c16eef2557254b"
+          content: "Taegu Kim, Jungsik Hong, and Pilsung Kang*. (2015). Box office forecasting using machine learning algorithms based on SNS data, International Journal of Forecasting 31(2): 364-390. (April-June). (SSCI).",
+          url: "https://www.sciencedirect.com/science/article/pii/S0169207014000971"
         },
         {
           content: "Seokho Kang, Sungzoon Cho, and Pilsung Kang*. (2015). Multi-class classification via heterogeneous ensemble of one-class classifiers, Engineering Applications of Artificial Intelligence 43: 35-43. (SCIE).",
@@ -742,19 +746,19 @@ export class DatabaseService {
         },
         {
           content: "Pilsung Kang, Kyungil Kim, and Namwook Cho*. (2015). Toll fraud detection of VoIP services via an ensemble of novelty detection algorithms, International Journal of Industrial Engineering: Theory, Applications and Practice 22(2):213-222. (SCIE)",
-          url: "https://sites.google.com/site/pskang80/goog_848792091"
+          url: "http://eds.b.ebscohost.com/eds/detail/detail?vid=0&sid=e70127b3-1bf6-4892-8801-e1ccd59f8761%40pdc-v-sessmgr05&bdata=Jmxhbmc9a28mc2l0ZT1lZHMtbGl2ZSZzY29wZT1zaXRl#db=asn&AN=102107087"
         },
         {
           content: "Pilsung Kang* and Sungzoon Cho. (2015). Keystroke dynamics-based user authentication using long and free text strings from various input devices. Information Sciences 308: 72-93. (SCI)",
-          url: "http://ac.els-cdn.com/S0020025514009062/1-s2.0-S0020025514009062-main.pdf?_tid=9b217384-ab69-11e4-9cd8-00000aacb361&acdnat=1422943259_4ce239b46fb3e36734abb8bbc4bb6b14"
+          url: "https://www.sciencedirect.com/science/article/pii/S0020025514009062"
         },
         {
           content: "Seokho Kang, Pilsung Kang, Taehoon Ko, Sungzoon Cho*, Su-jin Rhee, and Kyung-sang Yu. (2015). An efficient and effective ensemble of support vector machines for anti-diabetic drug failure prediction, Expert Systems with Applications 42(9): 4265-4273. (SCIE)",
-          url: "http://ac.els-cdn.com/S0957417415000573/1-s2.0-S0957417415000573-main.pdf?_tid=71455f80-ab69-11e4-8efa-00000aab0f26&acdnat=1422943188_7373189854f3bf5bd5ac78cb719fcd38"
+          url: "https://www.sciencedirect.com/science/article/pii/S0957417415000573"
         },
         {
           content: "Pilsung Kang. (2015). The effects of different alphabets on free text keystroke authentication: A case study on the Korean-English users, Journal of Systems and Software 102: 1-11. (SCIE)",
-          url: "http://ac.els-cdn.com/S0164121214002842/1-s2.0-S0164121214002842-main.pdf?_tid=4656b9b8-ab69-11e4-b604-00000aacb361&acdnat=1422943116_f43205b1d005e28a689c406aeaf20026"
+          url: "https://www.sciencedirect.com/science/article/pii/S0164121214002842"
         },
         {
           content: "Dongil Kim, Pilsung Kang, Seung-kyung Lee, Seokho Kang, Seungyong Doh, and Sungzoon Cho*. (2015). Improving virtual metrology performance by removing metrology noises in a training dataset, Pattern Analysis and Applications 18(1): 173-189. (SCIE)",
@@ -762,7 +766,7 @@ export class DatabaseService {
         },
         {
           content: "Seokho Kang,  Sungzoon Cho, and Pilsung Kang*.  (2015). Constructing a multi-class classifier using one-against-one approach with different binary classifiers, Neurocomputing 149: 677-682. (SCIE)",
-          url: "http://ac.els-cdn.com/S0925231214010200/1-s2.0-S0925231214010200-main.pdf?_tid=618814a2-ab69-11e4-9e71-00000aacb35e&acdnat=1422943165_ed069f4989f883fb6db8fd14a47a76a6"
+          url: "https://www.sciencedirect.com/science/article/pii/S0925231214010200"
         },
         {
           content: "Pilsung Kang*, Dongil Kim, and Sungzoon Cho. (2014). Evaluating the reliability level of virtual metrology results for flexible process control: a novelty detection-based approach. Pattern Analysis and Applications 17(4): 863-881. (SCIE)",
@@ -778,7 +782,7 @@ export class DatabaseService {
         },
         {
           content: "Seung-kyung Lee, Pilsung Kang, and Sungzoon Cho*. (2014). Probabilistic local reconstruction for k-NN regression and its application to virtual metrology in semiconductor manufacturing. Neurocomputing 131: 423-439. (SCIE)",
-          url: "https://sites.google.com/site/pskang80/goog_2135110821"
+          url: "https://www.sciencedirect.com/science/article/pii/S0925231213009284"
         },
         {
           content: "Gulanbaier Tuerhong, Seoung Bum Kim*, Pilsung Kang, and Sungzoon Cho. (2014). Multivariate control chart based on hybrid novelty scores.Communications in Statistics-Simulation and Computation 43(1): 115-131. (SCIE)",

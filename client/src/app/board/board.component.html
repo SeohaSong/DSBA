@@ -156,7 +156,7 @@
           <li class="previous">
             <a (click)='turnPage(-1)'>← Newer</a>
           </li>
-          <li *ngIf="post_groups" class="page-amount">{{ page }} of {{ post_groups.length }}</li>
+          <li *ngIf="post_groups" class="page-amount">{{ post_group.page }} of {{ post_groups.length }}</li>
           <li class="next">
             <a (click)='turnPage(+1)'>Older →</a>
           </li>
