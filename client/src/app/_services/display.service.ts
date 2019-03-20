@@ -76,7 +76,7 @@ export class DisplayService {
   _updateViewCount = () => {
     console.log('뷰카운트 업데이트는 서버측에서 작업해야함');
   }
-  setEditor() {
+  _setEditor() {
     setTimeout(() => {
       tinymce.remove();
       tinymce.init({
@@ -97,9 +97,6 @@ export class DisplayService {
       });
     });
   }
-  _getUserID = () => {
-    if (auth.currentUser) return auth.currentUser.uid
-  }
   _savePost = (board, idx) => {
     let title = board.updating_title
     let content = tinymce.activeEditor.getContent({format : 'raw'})
@@ -108,6 +105,11 @@ export class DisplayService {
       content: content
     },{merge: true})
     return [title, content]
+  }
+
+  getUserName = () => auth.currentUser.displayName;
+  getUserID = () => {
+    if (auth.currentUser) return auth.currentUser.uid
   }
 
   _startPage(loadData) {
@@ -123,7 +125,6 @@ export class DisplayService {
       resolve()
     }))
   }
-
 
   startApp(app) {
 
@@ -376,7 +377,7 @@ export class DisplayService {
       let url = getUpdatedUrl(paramMap => paramMap["postIdx"] = idx)
       this.location.go(url)
       this._updateViewCount()
-      this.setEditor()
+      this._setEditor()
     }
     component.hidePost = () => {
       component.updating_status = false
@@ -385,7 +386,7 @@ export class DisplayService {
       this.location.go(url)
     }
     component.toggleEditStatus = idx => {
-      let uid = this._getUserID()
+      let uid = this.getUserID()
       if (uid) {
         if (component.updating_status) {
           let post = component.posts[idx];
@@ -396,7 +397,7 @@ export class DisplayService {
         }
         new Promise((resolve, reject) => {
           resolve(component.updating_status = !component.updating_status)
-        }).then(() => this.setEditor());
+        }).then(() => this._setEditor());
       } else alert('권한이 없습니다.')
     }
     component.deletePost = () => {

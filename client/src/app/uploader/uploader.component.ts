@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
 
 import { DisplayService } from "../_services/display.service"
-import { UtilsService } from "../_services/utils.service"
 
 
 declare const db: any;
@@ -18,22 +16,18 @@ declare const tinymce: any;
 export class UploaderComponent implements OnInit {
 
   constructor(
-    private http: HttpClient,
     private router: Router,
     private displayService: DisplayService,
-    private utilsService: UtilsService,
   ) { }
 
   creating_title: string;
   creating_category = '';
 
-  post_collection = db.collection("posts");
-
   ngOnInit() {
-    this.displayService.setEditor();
+    this.displayService._setEditor();
   }
 
-  create_post() {
+  createPost() {
     let post = {view_count: 0, images: []};
     post['title'] = this.creating_title;
     post['category'] = this.creating_category;
@@ -44,7 +38,7 @@ export class UploaderComponent implements OnInit {
     if( condition1 || condition2 || condition3 ) {
       alert('양식을 모두 채워주세요.');
     } else {
-      post['writer'] = this.utilsService.get_username();
+      post['writer'] = this.displayService.getUserName();
       let dt = new Date();
       let yyyy = ''+dt.getFullYear()
       let mm_ = dt.getMonth()+1
@@ -59,90 +53,92 @@ export class UploaderComponent implements OnInit {
       let ss = ''+parseInt(ss_/10+'')+ss_%10;
       let date = yyyy+'.'+mm+'.'+dd+' '+hh+':'+mM+':'+ss;
       post['date'] = date;
-      this.post_collection.doc().set(post);
+      db.collection("posts").doc().set(post);
       this.router.navigate(['board', post['category']]);
     }
   }
 
-  // delete_all_remote_data() {
-  //   let post_collection = this.post_collection;
-  //   post_collection.get().then(data => {
-  //     data.forEach(post => {
-  //       post_collection.doc(post.id).delete()
-  //       .then(data => console.log('delete success'))
-  //       .catch(error => console.log('delete fail'));
-  //     });
-  //   });
-  // }
+  member = {
+    'img': '',
+    'mail': '',
+    'name_ko': '',
+    'name_en': '',
+    'BS': '',
+    'MS': '',
+    'PHD': '',
+    'admission': '',
+    'career': '',
+    'current': '',
+    'homepage': '',
+    'CV': '',
+    'type': '',
+    'status': '',
+    'research_areas': '',
+ }
 
-  // upload_all_local_data() {
-  //   let post_collection = this.post_collection;
-  //   let posts: any;
-  //   this.http.get('assets/db/posts.json')
-  //   .subscribe(data => {
-  //     posts = data;
-  //     for (let i=0; i < posts.length; i++) {
-  //       let post = posts[i];
-  //       delete post['thumbnail'];
-  //       delete post['id'];
-  //       let date = post.date;
-  //       let yyyy = date.slice(0, 4);
-  //       let mm = date.slice(4, 6);
-  //       let dd = date.slice(6, 8);
-  //       let hh = date.slice(8, 10);
-  //       let mM = date.slice(10, 12);
-  //       let ss = date.slice(12, 14);
-  //       post.date = yyyy+'.'+mm+'.'+dd+' '+hh+':'+mM+':'+ss;
-  //       post.view_count = parseInt(post.view_count);
-  //       if (post.images.length) {
-  //         let parts = post.images[0].split('/');
-  //         post.images = ['/assets/img/posts/'+parts[parts.length-1]];
-  //       }
-  //       post_collection.doc().set(post)
-  //       .then(data => console.log('create success'))
-  //       .catch(error => console.log('create fail'));
-  //     }
-  //   });
 
-  // }
-
-  // upload_all_seminar_data() {
-  //   let post_collection = this.post_collection;
-  //   let posts: any;
-  //   this.http.get('assets/db/seminars.json')
-  //   .subscribe(data => {
-  //     posts = data;
-  //     for (let i=0; i < posts.length; i++) {
-  //       let post = {};
-  //       let post_ = posts[i].fields;
-  //       let keys = Object.keys(post_);
-  //       for (let i_=0; i_ < keys.length; i_++) {
-  //         let attr = post_[keys[i_]];
-  //         post[keys[i_]] = attr[Object.keys(attr)[0]];
-  //       }
-  //       post['view_count'] = parseInt(post['view_count']);
-  //       if(Object.keys(post['images']).length){
-  //         let parts = post['images']['values'][0]['stringValue'].split('/');
-  //         post['images'] = ['/assets/img/posts/'+parts[parts.length-1]];
-  //       }
-  //       post_collection.doc().set(post)
-  //       .then(data => console.log('create success'))
-  //       .catch(error => console.log('create fail'));
-  //     }
-  //   });
-  // }
-
-  // upload_all_members_data() {
-  //   let collection = db.collection("members");
-  //   let objs: any;
-  //   this.http.get('assets/db/members.json')
-  //   .subscribe(data => {
-  //     objs = data;
-  //     for (let i=0; i < objs.length; i++) {
-  //       collection.doc().set(objs[i])
-  //       .then(data => console.log('create success'))
-  //       .catch(error => console.log('create fail'));
-  //     }
-  //   });
-  // }
+  uploadNewPeople() {
+    let new_members = [
+      {
+        'img': 'assets/img/members/026.jpg',
+        'mail': 'youngbin_ro@korea.ac.kr',
+        'name_ko': '노영빈',
+        'name_en': 'Youngbin Ro',
+        'BS': 'Business Administration, Korea University, 2018',
+        'admission': '2019-1',
+        'status': 'M.S. Student',
+        'type': 'students',
+        'research_areas': 'Data Mining, Machine Learning',
+      },
+      {
+        'img': 'assets/img/members/027.jpg',
+        'mail': 'pack1205@korea.ac.kr',
+        'name_ko': '박중민',
+        'name_en': 'Joongmin Park',
+        'BS': 'School of Industrial Management Engineering, Korea University, 2017',
+        'admission': '2019-1',
+        'status': 'M.S. Student',
+        'type': 'students',
+        'research_areas': 'Data Mining, Machine Learning',
+      },
+      {
+        'img': 'assets/img/members/028.jpg',        
+        'mail': '284764@korea.ac.kr',
+        'name_ko': '이정훈',
+        'name_en': 'Junghoon Lee',
+        'BS': 'School of Industrial Management Engineering, Korea University, 2018',
+        'admission': '2019-1',
+        'status': 'M.S. Student',
+        'type': 'students',
+        'research_areas': 'NLP, Deep Learning',
+      },
+      {
+        'img': 'assets/img/members/029.jpg',
+        'mail': '',
+        'name_ko': '조규원',
+        'name_en': 'Gyuwon Cho',
+        'BS': 'School of Business Administration,  Hongik University, 2018',
+        'admission': '2019-1',
+        'status': 'M.S. Student',
+        'type': 'students',
+        'research_areas': 'NLP, Deep Learning, Data Analysis',
+      },
+      {
+        'img': 'assets/img/members/030.jpg',
+        'mail': 'excelsiorcjh@korea.ac.kr',
+        'name_ko': '최종현',
+        'name_en': 'Jonghyun Choi',
+        'BS': 'School of Industrial Management Engineering, Hankuk Univ. of Foreign Studies, 2016',
+        'admission': '2019-1',
+        'career': 'WIPS (2016.04 ~ 2018.08)',
+        'status': 'M.S. Student',
+        'type': 'students',
+        'research_areas': 'NLP, Deep Learning, Data Analysis',
+      },
+    ]
+    new_members.forEach((member) => {
+      member = Object.assign(Object.assign(this.member), member)
+      db.collection("members").doc(member.name_ko).set(member);
+    })
+  }
 }

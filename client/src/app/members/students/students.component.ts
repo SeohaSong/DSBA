@@ -1,8 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { UtilsService } from "../../_services/utils.service";
-
-
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
@@ -10,14 +7,17 @@ import { UtilsService } from "../../_services/utils.service";
 })
 export class StudentsComponent implements OnInit {
 
-  constructor(
-    private utilsService: UtilsService
-  ) { }
+  constructor() { }
 
   @Input() pageType: string;
   @Input() studentPairs: any[];
 
-  beautifyAdmission = this.utilsService.beautifyAdmission;
-
   ngOnInit() { }
+
+  beautifyAdmission(admission: string) {
+    let parts: Array<string> = admission.split('-');
+    let head: string = ['March 1', 'September 1'][parseInt(parts[1])-1];
+    let beautified: string  = [head, parts[0]].join(', ');
+    return beautified;
+  }
 }
