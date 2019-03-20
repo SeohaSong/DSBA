@@ -686,7 +686,7 @@ export class DatabaseService {
         },
         {
           content: "Junhong Kim and Pilsung Kang*. (2018). Analyzing International Collaboration and Identifying Core Topics for the \"Internet of Things\" based on Network Analysis and Topic Modeling, International Journal of Industrial Engineering: Theory, Applications and Practice 25(3), 349-369. (SCIE)",
-          url: "http://eds.a.ebscohost.com/abstract?site=eds&scope=site&jrnl=10724761&AN=132768171&h=nrTr5KpSmSFM5pxVICa7eRd26X3yHChMG9Z33O5lzLjiUx9rPwzok30mAKvNeO%2bzNRIugSuTiYGfR0OM7wIJLg%3d%3d&crl=c&resultLocal=ErrCrlNoResults&resultNs=Ehost&crlhashurl=login.aspx%3fdirect%3dtrue%26profile%3dehost%26scope%3dsite%26authtype%3dcrawler%26jrnl%3d10724761%26AN%3d132768171"
+          url: "http://eds.a.ebscohost.com/eds/detail/detail?vid=0&sid=4439dfa7-f123-4b62-82a2-061e949b48b9%40sessionmgr4008&bdata=Jmxhbmc9a28mc2l0ZT1lZHMtbGl2ZQ%3d%3d#AN=132768171&db=a9h"
         },
         {
           content: "Hakyeon Lee and Pilsung Kang*. (2018). Identifying core topics in technology and innovation management studies: A topic model approach, Journal of Technology Transfer 43(5), 1291-1317. (SSCI)",
@@ -746,7 +746,7 @@ export class DatabaseService {
         },
         {
           content: "Pilsung Kang, Kyungil Kim, and Namwook Cho*. (2015). Toll fraud detection of VoIP services via an ensemble of novelty detection algorithms, International Journal of Industrial Engineering: Theory, Applications and Practice 22(2):213-222. (SCIE)",
-          url: "http://eds.b.ebscohost.com/eds/detail/detail?vid=0&sid=e70127b3-1bf6-4892-8801-e1ccd59f8761%40pdc-v-sessmgr05&bdata=Jmxhbmc9a28mc2l0ZT1lZHMtbGl2ZSZzY29wZT1zaXRl#db=asn&AN=102107087"
+          url: "http://eds.a.ebscohost.com/eds/detail/detail?vid=0&sid=cc183d4e-281e-43e4-b18b-0b042d8a235e%40sessionmgr4007&bdata=Jmxhbmc9a28mc2l0ZT1lZHMtbGl2ZQ%3d%3d#AN=102107087&db=a9h"
         },
         {
           content: "Pilsung Kang* and Sungzoon Cho. (2015). Keystroke dynamics-based user authentication using long and free text strings from various input devices. Information Sciences 308: 72-93. (SCI)",
