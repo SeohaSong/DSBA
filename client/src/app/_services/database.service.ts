@@ -673,7 +673,8 @@ export class DatabaseService {
       title: 'International Journal',
       contents: [
         {
-          content: "Myeongjun Jang, Seungwan Seo, and Pilsung Kang*. (2019+). Recurrent neural network-based semantic variational autoencoder for sequence-to-sequence learning, Information Sciences, accepted for publication.",
+          content: "Myeongjun Jang, Seungwan Seo, and Pilsung Kang*. (2019). Recurrent neural network-based semantic variational autoencoder for sequence-to-sequence learning, Information Sciences 490, 59-73. (SCI)",
+          url: "https://www.sciencedirect.com/science/article/pii/S0020025519302786",
         },
         {
           content: "Eunjeong L. Park, Sungzoon Cho, and Pilsung Kang*. (2019). Supervised Paragraph Vector: distributed representations of words, documents and class labels. IEEE Access 7, 29051-29064. (SCIE)",
