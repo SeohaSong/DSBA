@@ -17,7 +17,6 @@ import { BoardComponent } from './board/board.component';
 
 import { DisplayService } from './_services/display.service';
 import { DatabaseService } from './_services/database.service';
-import { UtilsService } from './_services/utils.service';
 
 
 @NgModule({
@@ -42,7 +41,6 @@ import { UtilsService } from './_services/utils.service';
   providers: [
     DisplayService,
     DatabaseService,
-    UtilsService,
   ],
   bootstrap: [AppComponent]
 })

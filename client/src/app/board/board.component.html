@@ -29,15 +29,9 @@
                     <i class="fa fa-calendar"></i>
                     {{ post.date }}
                   </li>
-
                   <li (click)='toggleEditStatus(post.idx)'>
                     <i class="fa fa-pencil"></i>
                     {{ post.writer }}
-                  </li>
-
-                  <li>
-                    <i class="fa fa-comments"></i>
-                    {{ post.view_count }} Views
                   </li>
                   <li><i class="fa fa-tags"></i> {{ post.category }}</li>
                 </ul>
@@ -75,10 +69,6 @@
                   <li (click)='toggleEditStatus(post.idx)'>
                     <i class="fa fa-pencil"></i>
                     {{ post.writer }}
-                  </li>
-                  <li>
-                    <i class="fa fa-comments"></i>
-                    {{ post.view_count }} Views
                   </li>
                   <li><i class="fa fa-tags"></i> {{ post.category }}</li>
                 </ul>
