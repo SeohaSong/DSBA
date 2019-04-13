@@ -23,6 +23,24 @@ export class UploaderComponent implements OnInit {
   creating_title: string;
   creating_category = '';
 
+  member = {
+    'img': '',
+    'mail': '',
+    'name_ko': '',
+    'name_en': '',
+    'BS': '',
+    'MS': '',
+    'PHD': '',
+    'admission': '',
+    'career': '',
+    'current': '',
+    'homepage': '',
+    'CV': '',
+    'type': '',
+    'status': '',
+    'research_areas': '',
+ }
+
   ngOnInit() {
     this.displayService._setEditor();
   }
@@ -56,89 +74,5 @@ export class UploaderComponent implements OnInit {
       db.collection("posts").doc().set(post);
       this.router.navigate(['board', post['category']]);
     }
-  }
-
-  member = {
-    'img': '',
-    'mail': '',
-    'name_ko': '',
-    'name_en': '',
-    'BS': '',
-    'MS': '',
-    'PHD': '',
-    'admission': '',
-    'career': '',
-    'current': '',
-    'homepage': '',
-    'CV': '',
-    'type': '',
-    'status': '',
-    'research_areas': '',
- }
-
-
-  uploadNewPeople() {
-    let new_members = [
-      {
-        'img': 'assets/img/members/026.jpg',
-        'mail': 'youngbin_ro@korea.ac.kr',
-        'name_ko': '노영빈',
-        'name_en': 'Youngbin Ro',
-        'BS': 'Business Administration, Korea University, 2018',
-        'admission': '2019-1',
-        'status': 'M.S. Student',
-        'type': 'students',
-        'research_areas': 'Data Mining, Machine Learning',
-      },
-      {
-        'img': 'assets/img/members/027.jpg',
-        'mail': 'pack1205@korea.ac.kr',
-        'name_ko': '박중민',
-        'name_en': 'Joongmin Park',
-        'BS': 'School of Industrial Management Engineering, Korea University, 2017',
-        'admission': '2019-1',
-        'status': 'M.S. Student',
-        'type': 'students',
-        'research_areas': 'Data Mining, Machine Learning',
-      },
-      {
-        'img': 'assets/img/members/028.jpg',        
-        'mail': '284764@korea.ac.kr',
-        'name_ko': '이정훈',
-        'name_en': 'Junghoon Lee',
-        'BS': 'School of Industrial Management Engineering, Korea University, 2018',
-        'admission': '2019-1',
-        'status': 'M.S. Student',
-        'type': 'students',
-        'research_areas': 'NLP, Deep Learning',
-      },
-      {
-        'img': 'assets/img/members/029.jpg',
-        'mail': '',
-        'name_ko': '조규원',
-        'name_en': 'Gyuwon Cho',
-        'BS': 'School of Business Administration,  Hongik University, 2018',
-        'admission': '2019-1',
-        'status': 'M.S. Student',
-        'type': 'students',
-        'research_areas': 'NLP, Deep Learning, Data Analysis',
-      },
-      {
-        'img': 'assets/img/members/030.jpg',
-        'mail': 'excelsiorcjh@korea.ac.kr',
-        'name_ko': '최종현',
-        'name_en': 'Jonghyun Choi',
-        'BS': 'School of Industrial Management Engineering, Hankuk Univ. of Foreign Studies, 2016',
-        'admission': '2019-1',
-        'career': 'WIPS (2016.04 ~ 2018.08)',
-        'status': 'M.S. Student',
-        'type': 'students',
-        'research_areas': 'NLP, Deep Learning, Data Analysis',
-      },
-    ]
-    new_members.forEach((member) => {
-      member = Object.assign(Object.assign(this.member), member)
-      db.collection("members").doc(member.name_ko).set(member);
-    })
   }
 }
