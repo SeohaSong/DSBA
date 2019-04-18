@@ -364,9 +364,12 @@ export class DisplayService {
         let idx = parseInt(paramMap["postIdx"])
         let cond1 = change < 0 && 0 < idx
         let cond2 = change > 0 && posts.length-1 > idx
-        if (cond1 || cond2) {idx += change
-                             paramMap["postIdx"] = idx
-                             component.post = posts[idx]}
+        if (cond1 || cond2) {
+          idx += change
+          paramMap["postIdx"] = idx
+          component.post = posts[idx]
+          this._setEditorContent(component.post.content)
+        }
       })
       this.location.go(url)
     }
