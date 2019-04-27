@@ -18,7 +18,7 @@ export class BoardComponent implements OnInit {
   posts = []
   post_group: any
   post_groups: any
-  images = []
+  thumbnails = []
   latest_posts: any
   loading_status = true
   updating_title: string

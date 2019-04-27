@@ -100,7 +100,7 @@
         </ul>
         <br>
         <div *ngFor='let post of post_group'>
-          <div *ngIf='!post.images.length' class="row">
+          <div *ngIf='!post.thumbnail' class="row">
             <div class="col-sm-10 news-v3">
               <div class="news-v3-in-sm no-padding">
                 <ul class="list-inline posted-info">
@@ -118,7 +118,7 @@
               </div>
             </div>
           </div>
-          <div *ngIf='post.images.length' class="row dsba-post-with-photo">
+          <div *ngIf='post.thumbnail' class="row dsba-post-with-photo">
             <div class="col-sm-7 news-v3">
               <div class="news-v3-in-sm no-padding">
                 <ul class="list-inline posted-info">
@@ -136,7 +136,7 @@
             </div>
             <div class="col-sm-4 sm-margin-bottom-20">
               <div class="responsive-video">
-                <img src="{{ post.images[0] }}">
+                <img src="{{ post.thumbnail }}">
               </div>
             </div>
           </div>
@@ -174,12 +174,10 @@
         </ul>
         <div class="headline-v2 bg-color-light"><h2>Photostream</h2></div>
         <ul class="list-inline blog-photostream margin-bottom-50">
-          <li *ngFor='let img of images.slice(0, 9)'>
-            <a href="{{ img }}" class="fancybox img-hover-v2">
-              <span>
-                <img class="img-responsive" src="{{ img }}">
-              </span>
-            </a>
+          <li *ngFor='let img of thumbnails.slice(0, 9)'>
+            <span>
+              <img class="img-responsive" src="{{ img }}">
+            </span>
           </li>
         </ul>
       </div>

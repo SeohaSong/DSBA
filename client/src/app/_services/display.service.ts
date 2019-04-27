@@ -413,7 +413,7 @@ export class DisplayService {
     let loadData = resolve => {
       let category = component.category
       let posts = component.posts
-      let images = component.images
+      let thumbnails = component.thumbnails
       let ref: any
       if (category == "overall") ref = db.collection("posts")
       else ref = db.collection("posts").where("category", "==", category)
@@ -424,7 +424,7 @@ export class DisplayService {
           post.idx = idx
           post.id = post_.id
           post.preview = getPreview(post.content)
-          post.images.forEach(img => images.push(img))
+          if (post.thumbnail) thumbnails.push(post.thumbnail)
           posts.push(post)
           idx += 1
         })

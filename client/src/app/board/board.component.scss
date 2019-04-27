@@ -65,12 +65,14 @@
       height: 500px;
     }
     .dsba-post-image {
-      max-width: 90%;
+      width: 100%;
       margin-top: 30px;
       margin-bottom: 30px;
       display: inline-block;
       img {
-        width: 100%;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        max-width: 80%;
       }
     }
   }
