@@ -15,9 +15,6 @@ import { PublicationsComponent } from './publications/publications.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { BoardComponent } from './board/board.component';
 
-import { DisplayService } from './_services/display.service';
-import { DatabaseService } from './_services/database.service';
-
 
 @NgModule({
   declarations: [
@@ -38,10 +35,7 @@ import { DatabaseService } from './_services/database.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [
-    DisplayService,
-    DatabaseService,
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 
