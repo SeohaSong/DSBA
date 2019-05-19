@@ -673,8 +673,8 @@ export class DatabaseService {
       title: 'International Journal',
       contents: [
         {
-          content: "Junhong Kim, Jihoon Moon, Eenjun Hwang, Pilsung Kang*. (2019+). Recurrent inception convolution neural network for multi short-term load forecasting, Energy & Buildings, Accepted for publication.",
-          url: null,
+          content: "Junhong Kim, Jihoon Moon, Eenjun Hwang, Pilsung Kang*. (2019+). Recurrent inception convolution neural network for multi short-term load forecasting, Energy & Buildings 194, 328-341. (SCIE)",
+          url: "https://www.sciencedirect.com/science/article/pii/S0378778819308072?dgcid=author",
         },
         {
           content: "Myeongjun Jang, Seungwan Seo, and Pilsung Kang*. (2019). Recurrent neural network-based semantic variational autoencoder for sequence-to-sequence learning, Information Sciences 490, 59-73. (SCI)",
