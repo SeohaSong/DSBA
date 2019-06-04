@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule }    from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { UploaderComponent } from './uploader/uploader.component';
@@ -32,7 +31,6 @@ import { BoardComponent } from './board/board.component';
   imports: [
     BrowserModule.withServerTransition({appId: 'DSBA'}),
     AppRoutingModule,
-    HttpClientModule,
     FormsModule
   ],
   providers: [],
