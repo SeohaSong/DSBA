@@ -21,4 +21,3 @@
 )
 
 # "build:client-and-server-bundles-seohasong": "ng build --base-href /DSBA/ --prod && ng run client:server"
-# npm install @angular/platform-server @nguniversal/express-engine @nguniversal/module-map-ngfactory-loader webpack-cli ts-loader
