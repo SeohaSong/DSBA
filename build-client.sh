@@ -17,7 +17,7 @@
     cp -r $client_path/* $www_path
     (
         trap 'return 1' ERR
-        cd $dir_path
+        cd $www_path
         git checkout master
         gitgit
     )
