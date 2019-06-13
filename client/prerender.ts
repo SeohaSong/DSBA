@@ -16,10 +16,10 @@ import {ROUTES} from './static.paths';
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist/server/main');
 
-const BROWSER_FOLDER = join(process.cwd(), 'client');
+const BROWSER_FOLDER = join(process.cwd(), 'dist/browser');
 
 // Load the index.html file containing referances to your application bundle.
-const index = readFileSync(join('client', 'index.html'), 'utf8');
+const index = readFileSync(join('dist/browser', 'index.html'), 'utf8');
 
 let previousRender = Promise.resolve();
 

@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
 import { RouterModule, Routes } from '@angular/router';
 
 import { UploaderComponent } from './uploader/uploader.component';
@@ -13,7 +11,6 @@ import { BoardComponent } from './board/board.component';
 
 
 const routes: Routes = [
-  { path: 'uploader', component: UploaderComponent },
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   { path: 'main', component: MainComponent },
   { path: 'members', component: MembersComponent,
@@ -41,15 +38,12 @@ const routes: Routes = [
   { path: 'board/news', component: BoardComponent },
   { path: 'board/seminar', component: BoardComponent },
   { path: 'board/photo', component: BoardComponent },
+  { path: 'uploader', component: UploaderComponent },
 ];
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(routes)
-  ],
-  declarations: [],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

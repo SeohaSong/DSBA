@@ -1,23 +1,26 @@
 (
     trap 'return 0' ERR
-    dir_path=$( cd $( dirname $BASH_SOURCE ) && pwd )/dsba-koreauniv.github.io
-    cd ./client
-    npm run build:prerender
-    [ -d $dir_path ] && {
-        rm -r $dir_path/*
-        mv ./dist/client/* $dir_path
-        echo dsba.korea.ac.kr > $dir_path/CNAME
-    }
-    rm -r ./dist
-
-    cd ..
-    cp ./scripts/google* $dir_path
+    [ -d ./client/dist/browser ] || (
+        trap 'return 1' ERR
+        cd ./client
+        npm run build:ssr
+        node dist/prerender
+    )
+    dir_path=$( dirname $BASH_SOURCE )
+    www_path=$dir_path/dsba-koreauniv.github.io
+    old_files=$( ls $www_path | grep -v CNAME || : )
+    old_files=$( echo "$old_files" | grep -v ^google.*'\.'html$ || : )
+    for name in $old_files; do
+        rm -r $www_path/$name
+    done
+    client_path=$dir_path/client/dist/browser
+    cp -r $client_path/* $www_path
     (
+        trap 'return 1' ERR
         cd $dir_path
         git checkout master
         gitgit
     )
     gitgit
 )
-
-# "build:client-and-server-bundles-seohasong": "ng build --base-href /DSBA/ --prod && ng run client:server"
+# "ng build --base-href /DSBA/ --prod && ng run client:server"

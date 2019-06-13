@@ -1,9 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
-import { AppRoutingModule } from './app-routing.module';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms'
+
 import { UploaderComponent } from './uploader/uploader.component';
 import { MainComponent } from './main/main.component';
 import { MembersComponent } from './members/members.component';
@@ -29,13 +33,13 @@ import { BoardComponent } from './board/board.component';
     BoardComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({appId: 'DSBA'}),
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    BrowserAnimationsModule,
     FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-
-
 export class AppModule { }

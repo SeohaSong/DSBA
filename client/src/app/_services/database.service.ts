@@ -673,7 +673,7 @@ export class DatabaseService {
       title: 'International Journal',
       contents: [
         {
-          content: "Junhong Kim, Jihoon Moon, Eenjun Hwang, Pilsung Kang*. (2019+). Recurrent inception convolution neural network for multi short-term load forecasting, Energy & Buildings 194, 328-341. (SCIE)",
+          content: "Junhong Kim, Jihoon Moon, Eenjun Hwang, Pilsung Kang*. (2019). Recurrent inception convolution neural network for multi short-term load forecasting, Energy & Buildings 194(1), 328-341. (SCIE)",
           url: "https://www.sciencedirect.com/science/article/pii/S0378778819308072?dgcid=author",
         },
         {
@@ -854,6 +854,14 @@ export class DatabaseService {
       type: 'domestic-journal',
       title: 'Domestic Journal',
       contents: [
+        {
+          content: "양우식, 김형석, 김동화, 송서하, 강필성*. (2019+). CDN 환경에서의 동적 콘텐츠 캐싱을 위한 콘텐츠 뷰카운트 예측 및 인기 콘텐츠 판별, under review, 대한산업공학회지, Accepted for publication.",
+          url: null
+        },
+        {
+          content: "송서하, 김준홍, 김형석, 박재선, 강필성*. (2019). 금융 데이터 및 텍스트 데이터를 활용한 금융기업 조기 경보 모형 개발: 부실은행 예측을 중심으로. 대한산업공학회지, 45(3), 248-259.",
+          url: null
+        },
         {
           content: "정재윤, 모경현, 서승완, 김창엽, 김해동, 강필성*. (2018). 워드 임베딩과 단어 네트워크 분석을 활용한 비지도학습 기반의 문서 다중 범주 가중치 산출: 휴대폰 리뷰를 중심으로. 대한산업공학회지 44(6), 442-451.",
           url: null
