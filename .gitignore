@@ -3,7 +3,8 @@
 *nohup.out
 *.ipynb_checkpoints
 *__pycache__
-*.vscode
+
+.vscode
 
 data/*
 env/*

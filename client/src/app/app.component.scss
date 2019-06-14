@@ -1,21 +1,18 @@
 #loading-ui {
-    position: fixed;
-    width: 100%; height: 100%;
-    top:0px;
-    background: black;
-    z-index: 100;
+  position: fixed;
+  width: 100%; height: 100%;
+  top:0px;
+  background: black;
+  z-index: 100;
 }
-
 #dsba-back-header{
   width: 100%;
   height: 84px;
 }
-
 .header {
   position: fixed;
   width: 100%;
 }
-
 @media (min-width: 992px) {
   .dsba-logo {
     height: 40px;

@@ -1,52 +1,69 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$client-primary: mat-palette($mat-indigo);
+$client-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$client-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$client-theme: mat-light-theme($client-primary, $client-accent, $client-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($client-theme);
+
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-a {
-cursor: pointer;
-}
+/* #395182 */
+/* #482525 */
+/* #605B5B */
 
+a {
+  cursor: pointer;
+}
 .header .navbar-nav > li > a:hover,
 .header .navbar-nav > .active > a,
 .headline h2, .headline h3, .headline h4 {
-border-bottom: solid 2px #395182;
+  border-bottom: solid 2px #395182;
 }
-
 .header .dropdown-menu {
-border-top: solid 2px #395182;
+  border-top: solid 2px #395182;
 }
-
 .header .navbar-nav > .active > a {
-color: #395182;
-font-weight: 900;
+  color: #395182;
+  font-weight: 900;
 }
-
 .btn-u, .thumbnail-style a.btn-more,
 .timeline-v2 > li .cbp_tmicon,
 .header .navbar-toggle,
 .header .navbar-toggle:hover,
 .header .navbar-toggle:focus
 {
-background: #395182;
+  background: #395182;
 }
-
-@media (max-width: 991px) {
-.header .navbar-nav > .active > a,
-.header .navbar-nav > .active > a:hover,
-.header .navbar-nav > .active > a:focus {
-    background: #395182;
-}
-}
-
 .header .navbar-toggle:hover{
-background: #395182 !important;
+  background: #395182 !important;
 }
-
 .header .navbar-toggle {
-border-color: #395182;
+  border-color: #395182;
 }
-
 a, .service .service-icon, .color-green,
 .header .navbar-nav > .open > a,
 .header .navbar-nav > .open > a:hover,
@@ -62,44 +79,41 @@ a, .service .service-icon, .color-green,
 #effect-2 figure .img-hover,
 .lists-v2 i,
 a:hover{
-color: #395182;
+  color: #395182;
 }
-
 .headline-left .headline-brd:after,
 .headline-center h2:after {
-background: #395182;
+  background: #395182;
 }
-
 .thumbnail-style a.btn-more:hover {
-box-shadow: 0 0 0 2px #395182;
+  box-shadow: 0 0 0 2px #395182;
 }
-
 .header .nav > li > .search:hover {
-color: #395182;
-border-bottom-color: #395182;
+  color: #395182;
+  border-bottom-color: #395182;
 }
-
 .header .nav > li > .search:hover {
-color: #fff;
-background: #395182
+  color: #fff;
+  background: #395182
 }
-
-/* #395182 */
-/* #482525 */
-/* #605B5B */
+@media (max-width: 991px) {
+  .header .navbar-nav > .active > a,
+  .header .navbar-nav > .active > a:hover,
+  .header .navbar-nav > .active > a:focus {
+    background: #395182;
+  }
+}
 
 .mce-statusbar.mce-container.mce-panel.mce-stack-layout-item.mce-last {
-display: none;
+  display: none;
 }
-
 .mce-tinymce.mce-container.mce-panel,
 .mce-edit-area.mce-container.mce-panel.mce-stack-layout-item.mce-last {
-border: none;
+  border: none;
 }
-
 iframe {
-border: none;
+  border: none;
 }
 iframe[id^='mce']{
-box-shadow: 0.5px 0.5px 2px #ddd;
+  box-shadow: 0.5px 0.5px 2px #ddd;
 }
