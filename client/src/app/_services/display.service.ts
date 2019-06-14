@@ -12,8 +12,6 @@ declare const StyleSwitcher: any
 declare const OwlCarousel: any
 
 declare const $: any
-declare const db: any
-declare const auth: any
 declare const tinymce: any
 declare const firebase: any
 
@@ -29,7 +27,9 @@ export class DisplayService {
     private databaseService :DatabaseService,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) { }
-  
+
+  auth: any
+  db: any
 
   _getUrlHead = () => {
     return this.router.url.split("?")[0].split("/")[1]
@@ -100,16 +100,16 @@ export class DisplayService {
   _savePost = (board, idx) => {
     let title = board.updating_title
     let content = tinymce.activeEditor.getContent({format : 'raw'})
-    db.collection('posts').doc(board.posts[idx].id).set({
+    this.db.collection('posts').doc(board.posts[idx].id).set({
       title: title,
       content: content
     },{merge: true})
     return [title, content]
   }
 
-  getUserName = () => auth.currentUser.displayName;
+  getUserName = () => this.auth.currentUser.displayName;
   getUserID = () => {
-    if (auth.currentUser) return auth.currentUser.uid
+    if (this.auth.currentUser) return this.auth.currentUser.uid
   }
 
   _startPage(loadData) {
@@ -130,16 +130,24 @@ export class DisplayService {
 
     app.signIn = () => {
       let provider = new firebase.auth.GoogleAuthProvider()
-      auth.languageCode = 'ko-KR'
-      auth.signInWithRedirect(provider)
+      this.auth.languageCode = 'ko-KR'
+      this.auth.signInWithRedirect(provider)
     }
     app.signOut = () => {
-      auth.signOut()
+      this.auth.signOut()
       this.router.navigate(['main'])
     }
 
     if (isPlatformBrowser(this.platformId)) {
       new Promise(resolve => {
+        firebase.initializeApp({
+          apiKey: 'AIzaSyDXZMi6ZfLPtUB8f2yoU50J8VuT86c2DbQ',
+          authDomain: 'dsba-142b3.firebaseapp.com',
+          projectId: 'dsba-142b3',
+          storageBucket: 'gs://dsba-142b3.appspot.com'
+        });
+        this.auth = firebase.auth();
+        this.db = firebase.firestore();
         app.categories = this.databaseService.categories
         resolve()
       })
@@ -157,16 +165,16 @@ export class DisplayService {
       })
       let intervalId = setInterval(() => console.log('인증 과정이 진행중입니다.'))
       let _closeProcess = (message) => {
-        app.currentUser = auth.currentUser
+        app.currentUser = this.auth.currentUser
         $("#loading-ui").fadeOut(() => {
           clearInterval(intervalId)
           console.log(message)
         })
       }
-      auth.onAuthStateChanged((user) => {
+      this.auth.onAuthStateChanged((user) => {
         if (user) {
           let data = {name: user.displayName, email: user.email, status: 0}
-          db.collection('users').doc(user.uid).set(data)
+          this.db.collection('users').doc(user.uid).set(data)
           .then(() => '신규 가입되었습니다.').catch(() => '기존 사용자입니다.')
           .then(msg => {
             _closeProcess(msg+'\n'+data.name+': '+data.email)
@@ -214,7 +222,7 @@ export class DisplayService {
         "M.S. Candidate",
         "M.S. Student",
       ]
-      db.collection("members").get().then(data => {
+      this.db.collection("members").get().then(data => {
         let objs = []
         data.forEach(obj => objs.push(obj.data()))
         objs.sort((a, b): number => {
@@ -415,8 +423,8 @@ export class DisplayService {
       let posts = component.posts
       let thumbnails = component.thumbnails
       let ref: any
-      if (category == "overall") ref = db.collection("posts")
-      else ref = db.collection("posts").where("category", "==", category)
+      if (category == "overall") ref = this.db.collection("posts")
+      else ref = this.db.collection("posts").where("category", "==", category)
       ref.orderBy('date', 'desc').get().then(data => {
         let idx = 0
         data.forEach(post_ => {
