@@ -2,49 +2,79 @@
   <div class="headline-center">
     <h2>RESEARCHES</h2>
   </div>
-  <div class="content-xs">
-    <div id="filters-container" class="cbp-l-filters-text content-xs">
-      <div class="cbp-filter-item">
-        <br><br>
-        <p>우리는 현재 빅데이터(Big Data)와 사물인터넷(Internet of Things; IoT)으로 대변되는 데이터 홍수의 시대에 살고 있습니다. 이러한 세계는 사람뿐만 아니라 모든 사물들이 시간과 장소에 구애 받지 않고 네트워크로 연결되는 사회입니다. 본 연구실에서는 이와 같은 초연결 사회에서 산업 및 공공 분야의 정량적 데이터 기반 의사결정을 지원하기 위한 다양한 방법론을 개발하고 이를 응용하는 연구를 수행합니다.</p>
-      </div>
+  <div id="filters-container" class="cbp-l-filters-text content-xs">
+    <div class="cbp-filter-item">
+      <br><br>
+      <p>우리는 현재 빅데이터(Big Data)와 사물인터넷(Internet of Things; IoT)으로 대변되는 데이터 홍수의 시대에 살고 있습니다. 이러한 세계는 사람뿐만 아니라 모든 사물들이 시간과 장소에 구애 받지 않고 네트워크로 연결되는 사회입니다. 본 연구실에서는 이와 같은 초연결 사회에서 산업 및 공공 분야의 정량적 데이터 기반 의사결정을 지원하기 위한 다양한 방법론을 개발하고 이를 응용하는 연구를 수행합니다.</p>
     </div>
   </div>
 </div>
-
-<div class="container content-sm">
-
-  <div class='row'>
-
+<div class="container">
+  <div class='row shs-side-nav'>
     <div class="col-md-3">
-      <div id="dsba-right-nav" class="col-md-12 fixed" data-nav>
-        <div class="headline-v2"><h2>Researches</h2></div>
-        <ul *ngFor='let dataGroup of dataGroups; let i=index' [attr.data-pagenation-lst]='i' class="list-unstyled blog-trending margin-bottom-50">
-          <li *ngFor='let data of dataGroup'>
-            <a [attr.data-section]="data.id">
-              <h3>{{data.title}}</h3>
-            </a>
+      <div id='-nav-blocker'></div>
+      <div id='js-nav' class='-nav'>
+        <div class="headline-v2"><h2><strong>Researches</strong></h2></div>
+        <ul *ngFor='let datas of idx2datas; let idx=index' [attr.data-page]='idx+1' class="list-unstyled blog-trending js-titles">
+          <li *ngFor='let data of datas'>
+            <a [attr.data-idx]="data.idx" class='js-title'><h3>{{data.title}}</h3></a>
           </li>
         </ul>
-        <div *ngIf="isPagination()" class="cbp-l-filters-text content-xs" id="filters-container">
-          <span *ngFor='let dataGroup of dataGroups; let i=index' [attr.data-pagenation-btn]='i'>
-            <span *ngIf='i'>|</span>
-            <a><div class="cbp-filter-item">{{ i+1 }}</div></a>
-          </span>
+        <div *ngIf="idx2datas.length > 1" class="cbp-l-filters-text">
+          <ng-container *ngFor='let pages of idx2pages'>
+            <span *ngFor='let page of pages; let idx=index' [attr.data-page]='page' class='js-pages'>
+              <ng-container *ngIf='idx'>|</ng-container>
+              <a class="cbp-filter-item">{{page}}</a>
+            </span>
+            <br>
+          </ng-container>
+        </div>
+      </div>
+      <div id='js-nav--top' class='-nav'>
+        <div class="headline-v2"><h2><strong>Researches</strong></h2></div>
+        <ul *ngFor='let datas of idx2datas; let idx=index' [attr.data-page]='idx+1' class="list-unstyled blog-trending js-titles">
+          <li *ngFor='let data of datas'>
+            <a [attr.data-idx]="data.idx" class='js-title'><h3>{{data.title}}</h3></a>
+          </li>
+        </ul>
+        <div *ngIf="idx2datas.length > 1" class="cbp-l-filters-text">
+          <ng-container *ngFor='let pages of idx2pages'>
+            <span *ngFor='let page of pages; let idx=index' [attr.data-page]='page' class='js-pages'>
+              <ng-container *ngIf='idx'>|</ng-container>
+              <a class="cbp-filter-item">{{page}}</a>
+            </span>
+            <br>
+          </ng-container>
+        </div>
+      </div>
+      <div id='js-nav--bottom' class='-nav'>
+        <div class="headline-v2"><h2><strong>Researches</strong></h2></div>
+        <ul *ngFor='let datas of idx2datas; let idx=index' [attr.data-page]='idx+1' class="list-unstyled blog-trending js-titles">
+          <li *ngFor='let data of datas'>
+            <a [attr.data-idx]="data.idx" class='js-title'><h3>{{data.title}}</h3></a>
+          </li>
+        </ul>
+        <div *ngIf="idx2datas.length > 1" class="cbp-l-filters-text">
+          <ng-container *ngFor='let pages of idx2pages'>
+            <span *ngFor='let page of pages; let idx=index' [attr.data-page]='page' class='js-pages'>
+              <ng-container *ngIf='idx'>|</ng-container>
+              <a class="cbp-filter-item">{{page}}</a>
+            </span>
+            <br>
+          </ng-container>
         </div>
       </div>
     </div>
-
     <div class='col-md-9'>
-      <div class="row" *ngFor='let data of datas'>
-        <div class="col-md-12 md-margin-bottom-50" [attr.data-section]="data.id">
-          <img class="img-responsive" src='{{data.img}}' alt="">
+      <div class="row -slide-box" *ngFor='let data of datas'>
+        <div class="col-md-12 md-margin-bottom-50 js-data" [attr.data-idx]="data.idx">
+          <img class="img-responsive" src='{{data.img}}'>
         </div>
         <div class="col-md-12">
           <div class="headline-left margin-bottom-30">
-            <h3 class="headline-brd">{{data.term}} : {{data.title}}</h3>
+            <h3 class="headline-brd"><strong>{{data.title}}</strong></h3>
           </div>
-          <ul *ngFor='let content of data.contents' class="list-unstyled lists-v2 margin-bottom-30">
+          <ul *ngFor='let content of data.contents' class="list-unstyled lists-v2">
             <h4 *ngIf='content.title'>
               {{content.title}}
             </h4>
@@ -56,8 +86,5 @@
         </div>
       </div>
     </div>
-
   </div>
-
-
 </div>

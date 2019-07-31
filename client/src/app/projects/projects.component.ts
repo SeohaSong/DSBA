@@ -15,14 +15,10 @@ export class ProjectsComponent implements OnInit {
   ) { }
 
   datas: any[]
-  dataGroups: any[]
+  idx2datas: any[]
+  idx2pages: any[]
 
   ngOnInit() {
     this.displayService.initSlides(this)
   }
-
-  isPagination() {
-    return false
-  }
-
 }

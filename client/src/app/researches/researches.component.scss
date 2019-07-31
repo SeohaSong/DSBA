@@ -1,45 +1,15 @@
-[data-pagenation-lst] {
+.js-pages.js-on > .cbp-filter-item {
+  color: #395182;
+  font-weight: 900;
+}
+.js-titles {
   display: none;
-  &.in {
-    display: block;
-  }
+  &.js-on {display: block;}
 }
-
-[data-pagenation-btn] {
-  &.in {
-    .cbp-filter-item {
-      color: #395182;
-      font-weight: 900;
-    }
-  }
-}
-
 
 .dsba-li {
   display: flex;
-  i, span {
-    display: inline-block;
-  }
+  i, span {display: inline-block;}
 }
-
-.container.content-sm {
-  padding-top: 60px;
-  padding-bottom: 10px;
-}
-
-img {
-  margin-bottom: 10px;
-}
-
-@media (min-width: 992px) {
-  #dsba-right-nav {
-    position: fixed;
-    max-width: 250px;
-    width: calc(25% - 100px);
-  }
-}
-@media (max-width: 991px) {
-  #dsba-right-nav {
-    display: none;
-  }
-}
+.-slide-box {margin-bottom: 60px;}
+.cbp-l-filters-text {margin: 0;}

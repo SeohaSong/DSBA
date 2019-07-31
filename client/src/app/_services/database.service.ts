@@ -52,11 +52,61 @@ export class DatabaseService {
 
   researches = [
     {
-      id: 1,
-      img: 'assets/img/researches/research01.png',
+      img: 'assets/img/researches/8.png',
+      title: 'Structured Data에 대한 Classification , Clustering, Regression 적용',
+      contents: [
+        {
+          contents: [
+            '강건한 군집의 수를 정의하는 방법론 제안',
+            '각 부분의 예측 값을 앙상블을 활용하여 최적의 예측 값을 제안',
+          ]
+        }
+      ]
+    },
+    {
+      img: 'assets/img/researches/7.png',
+      title: 'Unstructured Data에 대한 Embedding, Classification, Localization',
+      contents: [
+        {
+          contents: [
+            '합성곱 신경망을 활용한 단어, 자소, 문장 감성 점수 기반 분류 방법론 제안',
+            '효과적인 문장 Embedding 방법론 제안',
+          ]
+        }
+      ]
+    },
+    {
+      img: 'assets/img/researches/6.png',
+      title: 'Wafer Bin , Keystroke 와 같은 Structured Data 기반 결과물 구축',
+      contents: [
+        {
+          contents: [
+            '키스트로크 데이터 기반 실 사용자 인증 방법론 적용',
+            '합성곱 신경망 기반 웨이퍼 빈 탐지 방법론 적용',
+            '해상 이미지 데이터 기반 유의 파고 예측 방법론 적용',
+            '딥러닝을 활용한 시스템 및 네트워크 이상상태 탐지 방법론 적용',
+          ]
+        }
+      ]
+    },
+    {
+      img: 'assets/img/researches/5.png',
+      title: 'Unstructured Data 기반 실제 응용 방법론 적용',
+      contents: [
+        {
+          contents: [
+            '뉴스 기반 유효 단어 시각화 모듈화 개발',
+            '텍스트 데이터 기반 조기경고모형 개발',
+            '워드 임베딩 기반 핵심 리뷰 단어 추출 방법론 적용',
+            '뉴스 기사와 주가 데이터를 활용한 종목 추천 방법론 적용',
+          ]
+        }
+      ]
+    },
+    {
+      img: 'assets/img/researches/4.png',
       title: 'Locally Linear Reconstruction for classification, regression, novelty detection, clustering, and missing value imputation',
       contents: [{
-        title: null,
         contents: [
           '개체 기반 학습(instance-based learning)은 사전에 모델 구축이 필요 없는 방식으로 k개의 유사 개체를 통해 판단하는 k-인접 이웃(k-nearest neighbor; k-NN) 알고리즘이 대표적임',
           'k-NN의 경우 이웃 개체의 수인 k와 이들을 결합하는 가중치(weights)에 따라 성능이 크게 좌우됨',
@@ -67,12 +117,10 @@ export class DatabaseService {
       }]
     },
     {
-      id: 2,
-      img: 'assets/img/researches/research02.png',
+      img: 'assets/img/researches/3.png',
       title: 'Supervised Document Embedding & Korean Word Recognition',
       contents: [
         {
-          title: null,
           contents: [
             '한글의 경우 영어에 비해 어휘사전과 형태소분석기의 완성도가 높지 않음',
             '어휘사전 및 형태소 분석기의 완성도를 높이기 위해 단어를 정확하게 인식하는 것이 매우 중요함',
@@ -83,8 +131,7 @@ export class DatabaseService {
       ]
     },
     {
-      id: 3,
-      img: 'assets/img/researches/research03.png',
+      img: 'assets/img/researches/2.png',
       title: 'Industrial & Public Applications based on Structured Data',
       contents: [
         {
@@ -104,8 +151,7 @@ export class DatabaseService {
       ]
     },
     {
-      id: 4,
-      img: 'assets/img/researches/research04.png',
+      img: 'assets/img/researches/1.png',
       title: 'Industrial & Public Applications based on Unstructured Data',
       contents: [
         {
@@ -128,15 +174,158 @@ export class DatabaseService {
           ]
         }
       ]
-    }
+    },
   ]
 
   projects = [
     {
-      id: 1,
+      img: 'assets/img/projects/30.png',
+      term: '2019.08 ~ 2019.12',
+      partner: 'SK C&C',
+      title: 'Hierarchical Attention Events를 활용한 Stock Market Prediction',
+      contents: [
+        {
+          title: '주가에 영향을 미치는 이벤트 분석 ',
+          contents: [
+            'Dependency parser를 활용한 Event Extraction',
+            'Event Tuple을 사용한 Neural Tensor Network 기반의 Event Embedding',
+            '날짜, 이벤트의 Hierarchical Attention를 통한 주가 상승/하락 분류',
+            '주가에 영향을 미치는 주요 이벤트 분석',
+          ]
+        },
+      ]
+    },
+    {
+      img: 'assets/img/projects/29.png',
+      term: '2019.05 ~ 2019.08',
+      partner: '비플라이소프트',
+      title: 'Semantic Network Analysis 및 시각화 시스템 구축',
+      contents: [
+        {
+          title: '스크랩된 뉴스로부터 다양한 형태의 시각화 서비스 제공',
+          contents: [
+            '빈도 기반 분석 결과 시각화 공동 출현(Co-Occurrence) 단어 기반 분석 결과 시각화',
+            '그래프 이론 기반 분석 결과 시각화',
+            '다양한 시나리오에 기반한 실제 사례 모듈 제작',
+          ]
+        },
+      ]
+    },
+    {
+      img: 'assets/img/projects/28.png',
+      term: '2019.04~2019.09',
+      partner: '엔씨소프트',
+      title: '게임 로그로부터 노이즈에 강건한 패턴 탐지 및 축약 방법론 연구',
+      contents: [
+        {
+          contents: [
+            '노이즈에 강건한 패턴 탐지 및 축약 방법론 제안을 목적으로 함',
+            '기존의 패턴 탐지 방법론에서 불가능 했던 연속적으로 등장하는 sequence만 고려함',
+            '딥러닝 기반의 embedding 방법론을 통하여 기존의 방식을 개선하고자 함',
+          ]
+        },
+      ]
+    },
+    {
+      img: 'assets/img/projects/27.png',
+      term: '2019.03 ~ 2021.03',
+      partner: '한국연구재단',
+      title: '사회적 약자를 보호하기 위한 인공지능 기반의 CCTV 영상 속 폭력행위 실시간 탐지 및 모니터링 기술 개발',
+      contents: [
+        {
+          contents: [
+            '감시 카메라의 수는 증가하고 있지만, 폭력 사건에 대한 예방 및 탐지 기술은 여전히 미흡함',
+            'CCTV를 사후 처리 용도로 사용하는 것이 아니라 폭력행위에 실시간으로 대처하기 위한 도구로 사용',
+          ]
+        },
+        {
+          title: '공동 출현(Co-Occurrence) 기반 분석 결과 시각화',
+          contents: [
+            '그래프 이론 기반 분석 결과 시각화',
+            '다양한 시나리오에 기반한 실제 사례 모듈 제작',
+          ]
+        },
+      ]
+    },
+    {
+      img: 'assets/img/projects/26.png',
+      term: '2018. 12 ~ 2019.05',
+      partner: '비플라이소프트',
+      title: '뉴스 텍스트 논조 감정 분석 모델 개발',
+      contents: [
+        {
+          title: '뉴스 텍스트의 긍정/부정 뉘앙스 분석',
+          contents: [
+            'Label propagation을 이용한 준지도학습 기반 감성분석',
+            'Self-training을 이용한 준지도학습 기반 감성분석',
+            'CNN과 CAM을 이용한 감성분석 및 시각화',
+            'RNN과 Attention을 이용한 감성분석 및 시각화',
+          ]
+        },
+      ]
+    },
+    {
+      img: 'assets/img/projects/25.png',
+      term: '2018.11 ~ 2019.06',
+      partner: '대우조선해양',
+      title: '해상환경 추정 정확도 향상을 위한 이미지 프로세싱을 통한 해상환경 추정기법 개발 3',
+      contents: [
+        {
+          title: '2차 과제에서 여러 장의 이미지를 활용한 모델 제안',
+        },
+        {
+          title: '3차 과제 모델 고도화 연구 1 : Multi-task learning',
+          contents: [
+            '현재 3가지의 해상 정보(파고, 파주기, 파향)를 각각 모델 구성하여 학습',
+            '단일 모델에서 3가지 정보를 모두 예측하는 Multi-task learning 모델 연구 중',
+          ]
+        },
+        {
+          title: '3차 과제 모델 고도화 연구 2 : 모델 Generalization 성능 강화',
+          contents: [
+            '서로 다른 선박의 해상 이미지는 조금씩 다르고(카메라 각도, 고도, 해상 특성), 해상 정보 label의 분포도 다름',
+            '상이한 데이터를 포괄하여 해석할 수 있는 모델 개발 연구 중',
+            '상이한 데이터를 카메라 각도와 고도 정보를 고려하여 정규화하는 전처리 방법 연구 중',
+          ]
+        },
+      ]
+    },
+    {
+      img: 'assets/img/projects/24.png',
+      term: '2018.11 ~ 2019.06',
+      partner: '대우조선해양',
+      title: '해상환경 추정 정확도 향상을 위한 이미지 프로세싱을 통한 해상환경 추정기법 개발 2',
+      contents: [
+        {
+          title: '선박의 최적 항로 탐색을 위한 해상 환경 추정의 필요성',
+          contents: [
+            '해상에서의 운항중인 선박의 최적 항로 선택을 위해서 해상 환경에 대한 추정이 필요함',
+            '기존의 추정방법은 실시간 예측이 어렵고 넓은 지역에 대한 상태를 예측하므로, 경제적인 운항 경로 탐색을 위해 보다 작은 시공간 단위에 대한 해상 환경 추정 기법이 필요함',
+          ]
+        },
+        {
+          title: '실제 선박에서 촬영 장비를 통해 해상 이미지 확보',
+          contents: [
+            '선박에 촬영장비를 설치 후 1-2초 간격으로 해상 이미지 촬영',
+            '고가의 Wave radar 장비를 활용하여 해상 정보 Label 수집',
+          ]
+        },
+        {
+          title: '해상 이미지를 이용한 딥러닝 기반의 해상 정보 예측 연구',
+          contents: [
+            '해상 이미지를 단일로 사용하는 2D CNN 모델, 여러 장의 이미지를 동시에 사용하는 3D CNN 모델 등을 개발하여 활용',
+            '정확한 추정을 위해 기상, 해양정보 및 이미지 촬영 정보 고려함',
+          ]
+        },
+      ]
+    },
+
+
+    {
       img: 'assets/img/projects/1.png',
       term: '2018.03 ~ 2019.02',
-      title: 'XAI (eXplainable AI) 기반 스마트 에너지 플랫폼 기술 개발 (한국전력공사 전력연구원)',
+      partner: '한국전력공사 전력연구원',
+      title: 'XAI (eXplainable AI) 기반 스마트 에너지 플랫폼 기술 개발',
       contents: [
         {
           title: '탐색적 자료 분석(EDA)을 통한 전력수요 패턴 분석 및 신규 변수 추출',
@@ -166,10 +355,10 @@ export class DatabaseService {
       ]
     },
     {
-      id: 2,
       img: 'assets/img/projects/2.png',
       term: '2018.04 ~ 2018.11',
-      title: '딥러닝 기반 Wafer Bin Map 이상 및 Map Fail 패턴 탐지 방법 (삼성전자)',
+      partner: '삼성전자',
+      title: '딥러닝 기반 Wafer Bin Map 이상 및 Map Fail 패턴 탐지 방법',
       contents: [
         {
           title: '일 단위 WBM Clustering 및 WBM 패턴 생성 비율 기준 특이 날짜 탐지 방법론',
@@ -183,10 +372,10 @@ export class DatabaseService {
       ]
     },
     {
-      id: 3,
       img: 'assets/img/projects/3.png',
       term: '2018.04 ~ 2018.10',
-      title: '모바일 환경에서 사용자 행위기반 실시간 이상징후 탐지기법 연구 (국가보안기술연구소)',
+      partner: '국가보안기술연구소',
+      title: '모바일 환경에서 사용자 행위기반 실시간 이상징후 탐지기법 연구',
       contents: [
         {
           title: '딥러닝 기반 모바일 사용자의 실시간 인증의 필요성',
@@ -204,10 +393,10 @@ export class DatabaseService {
       ]
     },
     {
-      id: 4,
       img: 'assets/img/projects/4.png',
       term: '2018.04 ~ 2018.10',
-      title: '해상환경 추정 정확도 향상을 위한 이미지 프로세싱을 통한 해상환경 추정기법 개발 (대우조선해양)',
+      partner: '대우조선해양',
+      title: '해상환경 추정 정확도 향상을 위한 이미지 프로세싱을 통한 해상환경 추정기법 개발 1',
       contents: [
         {
           title: ' 선박의 최적항로 탐색을 위한 해상환경 추정의 필요성',
@@ -226,10 +415,10 @@ export class DatabaseService {
       ]
     },
     {
-      id: 5,
       img: 'assets/img/projects/5.png',
       term: '2018.03 ~ 2019.02',
-      title: 'QoE 정보를 이용한 머신러닝 미디어 스트리밍 최적화 시스템 개발 (정보통신기술진흥센터)',
+      partner: '정보통신기술진흥센터',
+      title: 'QoE 정보를 이용한 머신러닝 미디어 스트리밍 최적화 시스템 개발',
       contents: [
         {
           title: 'ABR(Available Bit Rate)',
@@ -255,10 +444,10 @@ export class DatabaseService {
       ]
     },
     {
-      id: 6,
       img: 'assets/img/projects/6.png',
       term: '2018.06 ~ 2019.02',
-      title: '딥러닝을 활용한 문서와 그래프의 유사성 판단에 대한 연구 (NCSoft)',
+      partner: 'NCSoft',
+      title: '딥러닝을 활용한 문서와 그래프의 유사성 판단에 대한 연구',
       contents: [
         {
           title: '연상작용을 통한 문장의 유사여부 판단',
@@ -278,10 +467,10 @@ export class DatabaseService {
       ]
     },
     {
-      id: 7,
       img: 'assets/img/projects/7.png',
       term: '2018.03 ~ 2019.03',
-      title: '머신러닝을 활용한 시스템 이상상태 탐지기술 연구 (국방과학연구소)',
+      partner: '국방과학연구소',
+      title: '머신러닝을 활용한 시스템 이상상태 탐지기술 연구',
       contents: [
         {
           title: 'Data Representation Learning',
@@ -301,10 +490,10 @@ export class DatabaseService {
       ]
     },
     {
-      id: 8,
       img: 'assets/img/projects/8.png',
       term: '2017.11 ~ 2018.04',
-      title: '뉴스 기사 및 댓글 극성 분석 방법론 개발 (시그널 코리아)',
+      partner: '시그널코리아',
+      title: '뉴스 기사 및 댓글 극성 분석 방법론 개발',
       contents: [
         {
           title: null,
@@ -317,10 +506,10 @@ export class DatabaseService {
       ]
     },
     {
-      id: 9,
       img: 'assets/img/projects/9.png',
       term: '2017.09 ~ 2017.12',
-      title: '빅데이터 기반 조기경보모형 연구 개발 (금융감독원)',
+      partner: '금융감독원',
+      title: '빅데이터 기반 조기경보모형 연구 개발',
       contents: [
         {
           title: '현 금융위험조기경보모형의 한계',
@@ -341,10 +530,10 @@ export class DatabaseService {
       ]
     },
     {
-      id: 10,
       img: 'assets/img/projects/10.png',
       term: '2017.07 ~ 2018.01',
-      title: '딥러닝 및 텍스트마이닝 기반의 VDS 분석 시스템 개발 (현대자동차)',
+      partner: '현대자동차',
+      title: '딥러닝 및 텍스트마이닝 기반의 VDS 분석 시스템 개발',
       contents: [
         {
           title: '이상치 탐지를 이용한 특이 VDS 응답 추출',
@@ -364,13 +553,12 @@ export class DatabaseService {
       ]
     },
     {
-      id: 11,
       img: 'assets/img/projects/11.png',
       term: '2017.05 ~ 2017.10',
-      title: '딥러닝 기반의 웨이퍼 맵 분류 및 원인 규명 시각화 알고리즘 개발 (삼성전자)',
+      partner: '삼성전자',
+      title: '딥러닝 기반의 웨이퍼 맵 분류 및 원인 규명 시각화 알고리즘 개발',
       contents: [
         {
-          title: null,
           contents: [
             '딥러닝 기반의 이상 Wafer 인식기 개발 및 원인규명 시각화 알고리즘 개발을 목적으로 함',
             '엔지니어들의 다양한 사전 지식을 통합적으로 반영하고 모사하고자 함',
@@ -381,13 +569,12 @@ export class DatabaseService {
       ]
     },
     {
-      id: 12,
       img: 'assets/img/projects/12.png',
       term: '2017.05 ~ 2018.03',
-      title: '정형/비정형 데이터 기반의 경제 Knowledge Mining  기술 연구 (NCSoft)',
+      partner: 'NCSoft',
+      title: '정형/비정형 데이터 기반의 경제 Knowledge Mining  기술 연구',
       contents: [
         {
-          title: null,
           contents: [
             '주가 데이터(정형)와 뉴스기사(비정형)로부터 의미 있는 Knowledge Extraction을 목적으로 함',
             '뉴스 기사를 통한 네트워크 분석 기반 핵심 이벤트를 추출 및 시각화',
@@ -399,13 +586,12 @@ export class DatabaseService {
       ]
     },
     {
-      id: 13,
       img: 'assets/img/projects/13.png',
       term: '2017.04 ~ 2018.03',
-      title: 'QoE 정보를 이용한 머신러닝 미디어 스트리밍 최적화 시스템 개발 (정보통신기술진흥센터)',
+      partner: '정보통신기술진흥센터',
+      title: 'QoE 정보를 이용한 머신러닝 미디어 스트리밍 최적화 시스템 개발',
       contents: [
         {
-          title: null,
           contents: [
             '동영상 등 대용량 미디어 콘텐츠를 인터넷과 모바일 상에서 효율적으로 서비스하기 위해, CDN (Content Delivary Network)상 콘텐츠를 자동적으로 배치하는 머신러닝 기반의 알고리즘과 라이브러리를 개발함',
             '사용자의 콘텐츠 사용에 대한 QoE(Quality of Experience) Report 수집 기술 개발',
@@ -417,13 +603,12 @@ export class DatabaseService {
       ]
     },
     {
-      id: 14,
       img: 'assets/img/projects/14.png',
       term: '2016.08 ~ 2017.02',
-      title: '다변량 설비/품질 분석용 병렬 Machine learning/Artificial Intelligence 알고리듬 개발(삼성전자)',
+      partner: '삼성전자',
+      title: '다변량 설비/품질 분석용 병렬 Machine learning/Artificial Intelligence 알고리즘 개발',
       contents: [
         {
-          title: null,
           contents: [
             '“딥러닝 기반의 이상 Wafer 인식기 개발” 을 목적으로 함',
             '엔지니어들의 다양한 사전 지식(domain knowledge)를 통합적으로 반영하고 모사하고자 함',
@@ -435,13 +620,12 @@ export class DatabaseService {
       ]
     },
     {
-      id: 15,
       img: 'assets/img/projects/15.png',
       term: '2016.10 ~ 2017.03',
-      title: '뉴스와 주가를 이용한 Knowledge Extraction 기술 개발 (NCSoft)',
+      partner: 'NCSoft',
+      title: '뉴스와 주가를 이용한 Knowledge Extraction 기술 개발',
       contents: [
         {
-          title: null,
           contents: [
             '금융 분야에서의 정형/비정형 데이터를 기반으로 의미 있는 정보를 추출',
             'Text(뉴스기사)로부터 정형 데이터(주가)를 해석하는 방법론 개발',
@@ -453,13 +637,12 @@ export class DatabaseService {
       ]
     },
     {
-      id: 16,
       img: 'assets/img/projects/16.png',
       term: '2016.05 ~ 2017.04',
-      title: '비정형의 빅데이터를 활용하여 경쟁환경에서 사업자의 신제품 포지셔닝과 다기간 제품 포트폴리오 선정에 도움을 줄 수 있는 전사적 의사결정 시스템의 개발 (연구책임자, 연세대학교 모정훈 교수님)',
+      partner: '연세대학교 모정훈 교수님 (연구책임자)',
+      title: '비정형의 빅데이터를 활용하여 경쟁환경에서 사업자의 신제품 포지셔닝과 다기간 제품 포트폴리오 선정에 도움을 줄 수 있는 전사적 의사결정 시스템의 개발',
       contents: [
         {
-          title: null,
           contents: [
             '비정형 형태인 휴대폰에 대한 한글 리뷰 텍스트를 통해 수요분석과 전사적 의사결정에 도움이 되는 시스템 개발',
             '온라인 휴대폰 커뮤니티 사이트(세티즌, 뽐뿌 등)를 통하여 한글 휴대폰 리뷰 텍스트 수집',
@@ -471,13 +654,12 @@ export class DatabaseService {
       ]
     },
     {
-      id: 17,
       img: 'assets/img/projects/17.png',
       term: '2016.09 ~ 2016.12',
-      title: '뉴스 기사 극성 방법론 개발, granted by 시그널코리아',
+      partner: '시그널코리아',
+      title: '뉴스 기사 극성 방법론 개발',
       contents: [
         {
-          title: null,
           contents: [
             '뉴스 기사가 가진 내재적 감성을 정량적 수치로 표현하는 방법론 개발',
             '뉴럴넷 기반의 단어 임베딩 방법론과 머신러닝 기반의 감성 전파 방법론을 이용한 텍스트 감성 분석 기술 적용',
@@ -489,13 +671,12 @@ export class DatabaseService {
       ]
     },
     {
-      id: 18,
       img: 'assets/img/projects/18.png',
       term: '2016.11 ~ 2017.01',
-      title: '초음파 관련 임상연구 데이터의 텍스트마이닝 플랫폼 개발, granted by 삼성메디슨',
+      partner: '삼성메디슨',
+      title: '초음파 관련 임상연구 데이터의 텍스트마이닝 플랫폼 개발',
       contents: [
         {
-          title: null,
           contents: [
             '2009년, 2015년에 등록된 의료용 초음파 연구 관련 초록 문헌을 수집',
             '토픽 모델링 기반의 초음파 임상연구 주요 주제 및 트렌드를 분석',
@@ -506,13 +687,12 @@ export class DatabaseService {
       ]
     },
     {
-      id: 19,
       img: 'assets/img/projects/19.png',
       term: '2016.04 ~ 2016.11',
-      title: '보안 데이터 분석을 위한 사용자 행위 모델 연구 (국가보안기술연구소)',
+      partner: '국가보안기술연구소',
+      title: '보안 데이터 분석을 위한 사용자 행위 모델 연구',
       contents: [
         {
-          title: null,
           contents: [
             '기업 내부 및 협력 사 직원에 의한 정보 유출 문제가 보안에서 화두가 되고 있는데 이를 방지하기 위해서 사용자 행위 모델을 구축하고 이를 탐지하기 위한 기계학습/데이터마이닝 알고리즘 개발',
             '시스템 로그 데이터로부터 내부자 위협 탐지 관련 주요 특성(Feature) 추출',
@@ -524,13 +704,12 @@ export class DatabaseService {
       ]
     },
     {
-      id: 20,
       img: 'assets/img/projects/20.png',
       term: '2016.03 ~ 2016.08',
-      title: 'Information Quality 평가 기술 개발 (NCSoft)',
+      partner: 'NCSoft',
+      title: 'Information Quality 평가 기술 개발',
       contents: [
         {
-          title: null,
           contents: [
             '금융 분야에서 대화 형식의 질의에 대한 정형/비정형 데이터를 기반으로 정보를 추출하여 적절한 답변을 제공할 수 있는 질의-응답 방법론 개발',
             '뉴스기사로부터 해당 기사의 내용을 함축적으로 표현하는 Keyword 추출 및 일반화',
@@ -542,13 +721,12 @@ export class DatabaseService {
       ]
     },
     {
-      id: 21,
       img: 'assets/img/projects/21.png',
-      term: '2016.03 ~ 2016.08',
-      title: 'Information Quality 평가 기술 개발 (NCSoft)',
+      term: '2015.06 ~ 2015.11',
+      partner: '한국과학기술정보연구원',
+      title: '제품 특성을 활용한 시장에서의 제품수명주기 추정방법 연구개발',
       contents: [
         {
-          title: null,
           contents: [
             '제품 유형별 특성을 고려한 신제품 수명주기 예측모형 개발',
             '신제품 수명주기 예측모형의 정확도 향상을 위한 최적의 제품 특성값 산출',
@@ -558,13 +736,12 @@ export class DatabaseService {
       ]
     },
     {
-      id: 22,
       img: 'assets/img/projects/22.png',
       term: '2015.05 ~ 2015.07',
-      title: 'Opinion Generation 기술 개발 (NCSoft)',
+      partner: 'NCSoft',
+      title: 'Opinion Generation 기술 개발',
       contents: [
         {
-          title: null,
           contents: [
             '사람의 대화 형식의 질의에 대해 해당 분야(domain)의 정형/비정형 데이터를 기반으로 적절한 답변을 제공하는 질의-응답 방법론 개발',
             '대화형태의 질의를 탐색 가능한 형태의 질의 집합으로 변환',
@@ -575,13 +752,12 @@ export class DatabaseService {
       ]
     },
     {
-      id: 23,
       img: 'assets/img/projects/23.png',
       term: '2014.05 ~ 2017.04',
-      title: '빅데이터를 활용한 준지도학습 기반의 한글 자연어처리 엔진 개발 및 응용, (한국연구재단 신진연구자 지원사업)',
+      partner: '한국연구재단 신진연구자 지원사업',
+      title: '빅데이터를 활용한 준지도학습 기반의 한글 자연어처리 엔진 개발 및 응용',
       contents: [
         {
-          title: null,
           contents: [
             '비정규 형태(신조어, 문법오류 등)의 한글 텍스트에 능동적으로 대응하면서 높은 정확도를 나타내는 준지도학습 기반의 자연어 처리 엔진 개발',
             '높은 정밀도와 재현율을 갖는 한국어 감성 어휘 사전을 구축하고 구축된 어휘를 기반으로 하는 텍스트 감성 분석 기술 개발',

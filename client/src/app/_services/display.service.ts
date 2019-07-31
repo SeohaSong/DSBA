@@ -51,24 +51,6 @@ export class DisplayService {
     }
     return groups
   }
-  _initScroll(doc, top_pad, bottom_pad) {
-    let nav = $("[data-nav]")
-    let init_top = parseInt(nav.css('top'))
-    let run = () => {
-      let scroll_top = doc.scrollTop()
-      let top = init_top-scroll_top
-      let nav_h = parseInt(nav.css('height'))
-      let body_h = parseInt($('body').css('height'))
-      let bottom = body_h-top_pad-scroll_top-nav_h
-      let top_cutoff = top-top_pad
-      let bottom_cutoff = bottom-bottom_pad
-      if (top_cutoff > 0) {nav.css('top', top)}
-      else if (bottom_cutoff < 0) {nav.css('top', top_pad+bottom_cutoff)}
-      else {nav.css('top', top_pad)}
-    }
-    doc.on('scroll resize', run)
-    setTimeout(run)
-  }
   _setEditorContent = content => {
     let editor = tinymce.activeEditor
     if (editor) editor.setContent(content)
@@ -126,6 +108,7 @@ export class DisplayService {
     }))
   }
 
+
   startApp(app) {
 
     app.signIn = () => {
@@ -133,6 +116,7 @@ export class DisplayService {
       this.auth.languageCode = 'ko-KR'
       this.auth.signInWithRedirect(provider)
     }
+    
     app.signOut = () => {
       this.auth.signOut()
       this.router.navigate(['main'])
@@ -198,6 +182,7 @@ export class DisplayService {
       comoponent.cooperations = databaseService.cooperations
       resolve()
     }
+
     this._startPage(loadData).then(() => {
       OwlCarousel.initOwlCarousel()
       $('#da-slider').cslider({autoplay: false})
@@ -236,6 +221,7 @@ export class DisplayService {
         resolve()
       })
     }
+
     this._startPage(loadData).then(() => {
       let turnPage = () => {
         let tail = this._getUrlTail()
@@ -261,51 +247,8 @@ export class DisplayService {
   }
 
 
-  initSlides(component) {
-
-    let initSection = (doc, top_pad) => {
-      $("a[data-section]").click((e) => {
-        let id = $(e.currentTarget).data('section')
-        let scroll_top = $("div[data-section="+id+"]").offset().top
-        doc.scrollTop(scroll_top-top_pad)
-      })
-    }
-    let initPagenation = () => {
-      let lsts = $("[data-pagenation-lst]")
-      let btns = $("[data-pagenation-btn]")
-      $(lsts[0]).addClass('in')
-      $(btns[0]).addClass('in')
-      btns.click((e) => {
-        let btn = $(e.currentTarget)
-        let lst = lsts[btn.data('pagenation-btn')]
-        lsts.removeClass('in')
-        btns.removeClass('in')
-        btn.addClass('in')
-        $(lst).addClass('in')
-      })
-    }
-
-    let loadData = resolve => {
-      let head = this._getUrlHead()
-      let datas: any
-      if (head == 'researches') datas = this.databaseService.researches
-      else if (head == 'projects') datas = this.databaseService.projects
-      component.datas = datas
-      component.dataGroups = this._groupList(4, datas)
-      component.isPagination = () => component.dataGroups.length > 1
-      resolve()
-    }
-    this._startPage(loadData).then(() => {
-      let doc = $(document)
-      initSection(doc, 100)
-      initPagenation()
-      this._initScroll(doc, 150, 450)
-    })
-  }
-
-
   initPublications(component) {
-
+    
     let initTab = () => {
       let type = this._getUrlTail()
       $("[data-type0]").removeClass('in')
@@ -316,11 +259,67 @@ export class DisplayService {
       component.publications = this.databaseService.publications
       resolve()
     }
+
     this._startPage(loadData).then(() => {
       initTab()
       $("a[href^='/publications/']").click(() => {initTab()})
     })
   }
+
+
+  initSlides(component) {
+
+    let initPagenation = () => {
+      let addOn = num => {
+        let idx2titles = document.querySelectorAll(".js-titles[data-page='"+num+"']")
+        let pages = document.querySelectorAll(".js-pages[data-page='"+num+"']")
+        idx2titles.forEach(x => x.classList.add('js-on'))
+        pages.forEach(x => x.classList.add('js-on'))
+      }
+      addOn(1)
+      let idx2titles = document.querySelectorAll('.js-titles')
+      let pages = document.querySelectorAll('.js-pages')
+      pages.forEach(x => x.addEventListener('click', (event) => {
+        idx2titles.forEach(x => x.classList.remove('js-on'));
+        pages.forEach(x => x.classList.remove('js-on'))
+        let page = <HTMLElement>event.currentTarget
+        addOn(page.dataset['page'])
+      }))
+    }
+
+    let initSection = () => {
+      let titles = Array.from(document.getElementsByClassName('js-title'))
+      titles.forEach(x => x.addEventListener('click', event => {
+        let title = <HTMLElement>event.currentTarget
+        let idx = title.dataset['idx']
+        let data = document.querySelector(".js-data[data-idx='"+idx+"']")
+        let scroll_top = window.scrollY+data.getBoundingClientRect().top
+        window.scrollTo(0, scroll_top-120)
+      }))
+    }
+
+    let loadData = resolve => {
+      let datas: any
+      let head = this._getUrlTail()
+      if (head == 'researches') datas = this.databaseService.researches
+      else if (head == 'projects') datas = this.databaseService.projects
+      datas.forEach((x, i) => x.idx = i)
+      let idx2datas = this._groupList(5, datas)
+      let pages = []
+      idx2datas.forEach((x, i) => pages.push(i+1))
+      let idx2pages = this._groupList(4, pages)
+      component.datas = datas
+      component.idx2datas = idx2datas
+      component.idx2pages = idx2pages
+      resolve()
+    }
+
+    this._startPage(loadData).then(() => {
+      initSection()
+      initPagenation()
+    })
+  }
+
 
   initBoard(component) {
 
@@ -334,6 +333,7 @@ export class DisplayService {
       updatedUrl += keys.map(k => [k, paramMap[k]].join("=")).join("&")
       return updatedUrl
     }
+
     let getPreview = content => {
       let txt = content.replace(/<.+?>/g, " ")
       let preview = txt.slice(0, 200)+" ..."
@@ -445,12 +445,11 @@ export class DisplayService {
         resolve()
       })
     }
+    
     this._startPage(loadData).then(() => {
       component.loading_status = false
-      let doc = $(document)
-      this._initScroll(doc, 80, 425)
-      // ng for를 통한 랜더링 이후에 아래 스크립트가 적용 되도록.
       setTimeout(() => {
+        // ng for를 통한 랜더링 이후에 아래 스크립트가 적용 되도록.
         let top = 0
         top += $('#daba-board').offset()['top']
         top -= $('.breadcrumbs-v1').offset()['top']

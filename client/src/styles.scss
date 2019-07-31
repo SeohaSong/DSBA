@@ -103,7 +103,9 @@ a:hover{
     background: #395182;
   }
 }
-
+#topcontrol:hover {
+  background: #395182;
+}
 .mce-statusbar.mce-container.mce-panel.mce-stack-layout-item.mce-last {
   display: none;
 }
@@ -116,4 +118,36 @@ iframe {
 }
 iframe[id^='mce']{
   box-shadow: 0.5px 0.5px 2px #ddd;
+}
+
+
+.shs-side-nav {
+  display: flex;
+  #js-nav {
+    display: none;
+    position: fixed;
+    top: 150px;
+    &.js-on {display: block;}
+  }
+  #js-nav--bottom {bottom: 60px;}
+  #js-nav--bottom, #js-nav--top {position: absolute;}
+  #-nav-blocker {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index:1;
+  }
+  .-nav {
+    opacity: 0;
+    width: 210px;
+    &.js-on {
+      opacity: 1;
+      z-index: 2;
+    }
+  }
+  @media (max-width: 991px) {
+    .-nav {display: none;}
+  }
 }
