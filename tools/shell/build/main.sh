@@ -2,18 +2,19 @@
     trap 'raise-e $BASH_SOURCE $LINENO' ERR
     main() {
         trap 'raise-e $BASH_SOURCE $LINENO 1' ERR
-        if [ "$1" == seohasong ]; then
+        case $1 in
+        seohasong)
             www_path=$HOME_PATH/SEOHASONG/SEOHASONG.GITHUB.IO/${PWD##*/}
-            old_files=$( ls $www_path | grep -v ^google.*'\.'html$ || : )
-        elif [ -d "$1" ]; then
+            old_files=$( ls $www_path | grep -v -E '^google.*\.html$' || : )
+        ;;
+        *)
+            [ -d "$1" ]
             www_path=${1%'/'}
-            old_files=$( ls $www_path | grep -v ^google.*'\.'html$ || : )
-            old_files=$( echo "$old_files" | grep -v ^CNAME$ || : )
-        fi
-        [ -d "$www_path" ]
+            old_files=$( ls $www_path | grep -v -E '^google.*\.html$|^CNAME$' || : )
+        ;;
+        esac
         cd client
-        npm run build:ssr
-        node dist/prerender
+        shs run conatiner npm run build:prerender
         # ng build --base-href /DSBA/ --prod && ng run client:server
         # vals="scope start_url"
         # filepath="$app_name/manifest.webmanifest"

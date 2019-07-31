@@ -20,7 +20,7 @@
             <a [attr.data-idx]="data.idx" class='js-title'><h3>{{data.title}}</h3></a>
           </li>
         </ul>
-        <div *ngIf="idx2datas.length > 1" class="cbp-l-filters-text">
+        <div class="cbp-l-filters-text">
           <ng-container *ngFor='let pages of idx2pages'>
             <span *ngFor='let page of pages; let idx=index' [attr.data-page]='page' class='js-pages'>
               <ng-container *ngIf='idx'>|</ng-container>
@@ -37,7 +37,7 @@
             <a [attr.data-idx]="data.idx" class='js-title'><h3>{{data.title}}</h3></a>
           </li>
         </ul>
-        <div *ngIf="idx2datas.length > 1" class="cbp-l-filters-text">
+        <div class="cbp-l-filters-text">
           <ng-container *ngFor='let pages of idx2pages'>
             <span *ngFor='let page of pages; let idx=index' [attr.data-page]='page' class='js-pages'>
               <ng-container *ngIf='idx'>|</ng-container>
@@ -54,7 +54,7 @@
             <a [attr.data-idx]="data.idx" class='js-title'><h3>{{data.title}}</h3></a>
           </li>
         </ul>
-        <div *ngIf="idx2datas.length > 1" class="cbp-l-filters-text">
+        <div class="cbp-l-filters-text">
           <ng-container *ngFor='let pages of idx2pages'>
             <span *ngFor='let page of pages; let idx=index' [attr.data-page]='page' class='js-pages'>
               <ng-container *ngIf='idx'>|</ng-container>
