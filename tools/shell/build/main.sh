@@ -14,7 +14,7 @@
         ;;
         esac
         cd client
-        shs run conatiner npm run build:prerender
+        shs run container npm run build:prerender
         # ng build --base-href /DSBA/ --prod && ng run client:server
         # vals="scope start_url"
         # filepath="$app_name/manifest.webmanifest"
