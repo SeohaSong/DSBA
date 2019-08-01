@@ -40,6 +40,6 @@ let initShsSideNav = () => {
       top_nav.classList.remove('js-on')
     }
   }
-  let events = ['load', 'scroll', 'resize', 'click']
+  let events = ['scroll', 'resize']
   events.forEach(x => window.addEventListener(x, callBack))
 }
