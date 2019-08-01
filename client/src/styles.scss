@@ -148,6 +148,6 @@ iframe[id^='mce']{
     }
   }
   @media (max-width: 991px) {
-    .-nav {display: none;}
+    > .-side-col {display: none;}
   }
 }
