@@ -51,33 +51,33 @@ export class DisplayService {
     }
     return groups
   }
-  _setEditorContent = content => {
-    let editor = tinymce.activeEditor
-    if (editor) editor.setContent(content)
-  }
-  _updateViewCount = () => {
-    console.log('뷰카운트 업데이트는 서버측에서 작업해야함');
-  }
-  _setEditor() {
-    setTimeout(() => {
-      tinymce.remove();
-      tinymce.init({
-        selector: '[data-editor=w]',
-        plugins : 'lists link image charmap preview hr table code autoresize',
-        menubar: false,
-        toolbar: "undo redo | formatselect | bold italic | underline strikethrough | charmap link image | alignleft aligncenter alignright | outdent indent | bullist numlist | preview code | hr table",
-        default_link_target: "_blank"
-      });
-      tinymce.init({
-        selector: '[data-editor=r]',
-        plugins : 'autoresize',
-        readonly: true,
-        toolbar: false,
-        menubar: false,
-        statusbar: false,
-        default_link_target: "_blank"
-      });
-    });
+  _setEditor = () => {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        tinymce.init({
+          selector: '[data-editor=w]',
+          plugins : 'lists link image charmap preview hr table code autoresize',
+          menubar: false,
+          toolbar: "undo redo | formatselect | bold italic | underline strikethrough | charmap link image | alignleft aligncenter alignright | outdent indent | bullist numlist | preview code | hr table",
+          default_link_target: "_blank"
+        })
+        tinymce.init({
+          selector: '[data-editor=r]',
+          plugins : 'autoresize',
+          readonly: true,
+          toolbar: false,
+          menubar: false,
+          statusbar: false,
+          default_link_target: "_blank"
+        })
+        let loop_id = setInterval(() => {
+          let editor = tinymce.activeEditor
+          if (editor) clearInterval(loop_id)
+          else return
+          resolve(editor)
+        })
+      })
+    })
   }
   _savePost = (board, idx) => {
     let title = board.updating_title
@@ -236,9 +236,7 @@ export class DisplayService {
           if (tail == 'overall') members = students.concat(alumni)
           if (tail == 'students') members = students
           if (tail == 'alumni') members = alumni
-          if (tail != 'professor') {
-            component.studentPairs = this._groupList(2, members)
-          }
+          if (tail != 'professor') component.studentPairs = this._groupList(2, members)
         })
       }
       $("[href^='/members']").click(() => turnPage())
@@ -375,20 +373,20 @@ export class DisplayService {
         if (cond1 || cond2) {
           idx += change
           paramMap["postIdx"] = idx
-          component.post = posts[idx]
-          this._setEditorContent(component.post.content)
+          let post = posts[idx]
+          component.post = post
+          this._setEditor().then((editor: any) => editor.setContent(post.content))
         }
       })
       this.location.go(url)
     }
     component.showPost = idx => {
       component.updating_status = false
-      component.post = component.posts[idx]
-      this._setEditorContent(component.post.content)
+      let post = component.posts[idx]
+      component.post = post
+      this._setEditor().then((editor: any) => editor.setContent(post.content))
       let url = getUpdatedUrl(paramMap => paramMap["postIdx"] = idx)
       this.location.go(url)
-      this._updateViewCount()
-      this._setEditor()
     }
     component.hidePost = () => {
       component.updating_status = false
@@ -406,9 +404,8 @@ export class DisplayService {
           let post = component.posts[idx];
           component.updating_title = post.title;
         }
-        new Promise((resolve, reject) => {
-          resolve(component.updating_status = !component.updating_status)
-        }).then(() => this._setEditor());
+        component.updating_status = !component.updating_status
+        this._setEditor().then()
       } else alert('권한이 없습니다.')
     }
     component.deletePost = () => {
