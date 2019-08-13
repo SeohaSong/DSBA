@@ -53,22 +53,27 @@ export class DisplayService {
   }
   _setEditor = () => {
     return new Promise(resolve => {
+      tinymce.remove()
       setTimeout(() => {
         tinymce.init({
           selector: '[data-editor=w]',
           plugins : 'lists link image charmap preview hr table code autoresize',
+          autoresize_bottom_margin: 0,
           menubar: false,
           toolbar: "undo redo | formatselect | bold italic | underline strikethrough | charmap link image | alignleft aligncenter alignright | outdent indent | bullist numlist | preview code | hr table",
-          default_link_target: "_blank"
+          default_link_target: "_blank",
+          content_css : "/assets/css/-tinymce.css"
         })
         tinymce.init({
           selector: '[data-editor=r]',
           plugins : 'autoresize',
+          autoresize_bottom_margin: 0,
           readonly: true,
           toolbar: false,
           menubar: false,
           statusbar: false,
-          default_link_target: "_blank"
+          default_link_target: "_blank",
+          content_css : "/assets/css/-tinymce.css"
         })
         let loop_id = setInterval(() => {
           let editor = tinymce.activeEditor
@@ -384,7 +389,8 @@ export class DisplayService {
       component.updating_status = false
       let post = component.posts[idx]
       component.post = post
-      this._setEditor().then((editor: any) => editor.setContent(post.content))
+      let content = post.content
+      this._setEditor().then((editor: any) => editor.setContent(content))
       let url = getUpdatedUrl(paramMap => paramMap["postIdx"] = idx)
       this.location.go(url)
     }
@@ -405,7 +411,7 @@ export class DisplayService {
           component.updating_title = post.title;
         }
         component.updating_status = !component.updating_status
-        this._setEditor().then()
+        this._setEditor()
       } else alert('권한이 없습니다.')
     }
     component.deletePost = () => {
@@ -418,7 +424,7 @@ export class DisplayService {
     let loadData = resolve => {
       let category = component.category
       let posts = component.posts
-      let thumbnails = component.thumbnails
+      let imgs = component.imgs
       let ref: any
       if (category == "overall") ref = this.db.collection("posts")
       else ref = this.db.collection("posts").where("category", "==", category)
@@ -428,8 +434,19 @@ export class DisplayService {
           let post = post_.data()
           post.idx = idx
           post.id = post_.id
-          post.preview = getPreview(post.content)
-          if (post.thumbnail) thumbnails.push(post.thumbnail)
+          let content = post.content
+          post.preview = getPreview(content)
+          let regex = /<img src=".+?"/g
+          let [imgs_, check] = [[], true]
+          while (check) {
+            let search = regex.exec(content)
+            if (search) imgs_.push(search[0].split('"')[1])
+            else check = false
+          }
+          if (imgs_) {
+            post.thumbnail = imgs_[0]
+            imgs_.forEach(x => imgs.push(x))
+          }
           posts.push(post)
           idx += 1
         })
@@ -446,7 +463,6 @@ export class DisplayService {
     this._startPage(loadData).then(() => {
       component.loading_status = false
       setTimeout(() => {
-        // ng for를 통한 랜더링 이후에 아래 스크립트가 적용 되도록.
         let top = 0
         top += $('#daba-board').offset()['top']
         top -= $('.breadcrumbs-v1').offset()['top']

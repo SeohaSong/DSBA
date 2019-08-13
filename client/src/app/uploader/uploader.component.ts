@@ -4,9 +4,8 @@ import { Router } from "@angular/router";
 import { DisplayService } from "../_services/display.service"
 
 
-declare const db: any;
-declare const tinymce: any;
-
+declare const tinymce: any
+declare const firebase: any
 
 @Component({
   selector: 'app-uploader',
@@ -22,6 +21,7 @@ export class UploaderComponent implements OnInit {
 
   creating_title: string;
   creating_category = '';
+  db: any
 
   member = {
     'img': '',
@@ -43,6 +43,7 @@ export class UploaderComponent implements OnInit {
 
   ngOnInit() {
     this.displayService._setEditor();
+    this.db = firebase.firestore();
   }
 
   createPost() {
@@ -71,7 +72,7 @@ export class UploaderComponent implements OnInit {
       let ss = ''+parseInt(ss_/10+'')+ss_%10;
       let date = yyyy+'.'+mm+'.'+dd+' '+hh+':'+mM+':'+ss;
       post['date'] = date;
-      db.collection("posts").doc().set(post);
+      this.db.collection("posts").doc().set(post);
       this.router.navigate(['board', post['category']]);
     }
   }

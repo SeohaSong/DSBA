@@ -27,30 +27,6 @@
     & > div {
       padding: 15px;
       margin-top: 15px;
-      .dsba-back-btn {
-        height: 40px;
-        width: 40px;
-        border-radius: 5px;
-        display: inline-block;
-        background-color: #395182;
-        padding-left: 5px;
-        position: relative;
-        span {
-          position: absolute;
-          font-size: 30px;
-          color: white;
-          top: -6px;
-        }
-      }
-      .dsba-delete-btn {
-        height: 40px;
-        width: 40px;
-        border-radius: 5px;
-        background-color: #7c0219;
-        padding-right: 5px;
-        position: relative;
-        float: right;
-      }
       h2 {
         color: #395182;
       }
@@ -63,17 +39,6 @@
       width: calc(100% + 5px);
       height: 500px;
     }
-    .dsba-post-image {
-      width: 100%;
-      margin-top: 30px;
-      margin-bottom: 30px;
-      display: inline-block;
-      img {
-        margin-left: 50%;
-        transform: translateX(-50%);
-        max-width: 80%;
-      }
-    }
   }
   .-preview {
     position: relative;
@@ -82,55 +47,49 @@
     margin: 0;
   }
 }
-
-.dsba-post-with-photo {
-  min-height: 200px;
+#-back-btn {
+  color: black;
+  text-shadow: 1px 1px grey;
+  font-size: 18px;
+}
+#-delete-btn {
+  color: #7c0219;
+  text-shadow: 1px 1px red;
+  font-size: 18px;
+  float: right;
 }
 
+.-thumbnail-img {max-width: 100%;}
+
+
+.blog-photostream li img {
+  width: 63px;
+  height: 63px;
+}
 .img-hover-v2 img {
   filter: none;
 }
-
-.blog-photostream li img {
-  height: 78px;
-}
-
 .container.content-md {
   min-height: 1000px;
 }
-
 .news-v3 h2 a:hover {
   color: #482525;
   font-weight: 500;
 }
-
 .news-v3 .post-shares li span {
   background-color: #395182;
   min-width: 22px;
   width: inherit;
 }
-
 .pager-v3 {
   margin-top: 0px;
 }
-
 .pager.pager-v3 li > a {
   &:hover, &:focus {
     background: #395182;
     border-color: #395182;
   }
 }
-
-.responsive-video {
-  > img {
-    bottom: -30px;
-    right: 0px;
-    max-width: 100%;
-    max-height: 100%;
-    position: absolute;
-  }
-}
-
 .breadcrumbs-v1 {
   background-color: black;
   background-size: contain;

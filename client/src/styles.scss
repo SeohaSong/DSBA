@@ -28,24 +28,15 @@ $client-theme: mat-light-theme($client-primary, $client-accent, $client-warn);
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* #395182 */
 /* #482525 */
 /* #605B5B */
-
-a {
-  cursor: pointer;
-}
 .header .navbar-nav > li > a:hover,
 .header .navbar-nav > .active > a,
-.headline h2, .headline h3, .headline h4 {
-  border-bottom: solid 2px #395182;
-}
-.header .dropdown-menu {
-  border-top: solid 2px #395182;
-}
+.headline h2, .headline h3, .headline h4
+{border-bottom: solid 2px #395182;}
+.header .dropdown-menu {border-top: solid 2px #395182;}
 .header .navbar-nav > .active > a {
   color: #395182;
   font-weight: 900;
@@ -55,16 +46,10 @@ a {
 .header .navbar-toggle,
 .header .navbar-toggle:hover,
 .header .navbar-toggle:focus
-{
-  background: #395182;
-}
-.header .navbar-toggle:hover{
-  background: #395182 !important;
-}
-.header .navbar-toggle {
-  border-color: #395182;
-}
-a, .service .service-icon, .color-green,
+{background: #395182;}
+.header .navbar-toggle:hover{background: #395182 !important;}
+.header .navbar-toggle {border-color: #395182;}
+.service .service-icon, .color-green,
 .header .navbar-nav > .open > a,
 .header .navbar-nav > .open > a:hover,
 .header .navbar-nav > .open > a:focus,
@@ -77,17 +62,11 @@ a, .service .service-icon, .color-green,
 .btn-u:active, .btn-u.active,
 .open .dropdown-toggle.btn-u,
 #effect-2 figure .img-hover,
-.lists-v2 i,
-a:hover{
-  color: #395182;
-}
+.lists-v2 i
+{color: #395182;}
 .headline-left .headline-brd:after,
-.headline-center h2:after {
-  background: #395182;
-}
-.thumbnail-style a.btn-more:hover {
-  box-shadow: 0 0 0 2px #395182;
-}
+.headline-center h2:after {background: #395182;}
+.thumbnail-style a.btn-more:hover {box-shadow: 0 0 0 2px #395182;}
 .header .nav > li > .search:hover {
   color: #395182;
   border-bottom-color: #395182;
@@ -99,27 +78,26 @@ a:hover{
 @media (max-width: 991px) {
   .header .navbar-nav > .active > a,
   .header .navbar-nav > .active > a:hover,
-  .header .navbar-nav > .active > a:focus {
-    background: #395182;
-  }
+  .header .navbar-nav > .active > a:focus
+  {background: #395182;}
 }
-#topcontrol:hover {
-  background: #395182;
-}
-.mce-statusbar.mce-container.mce-panel.mce-stack-layout-item.mce-last {
-  display: none;
-}
+#topcontrol:hover {background: #395182;}
+.mce-statusbar.mce-container.mce-panel.mce-stack-layout-item.mce-last {display: none;}
 .mce-tinymce.mce-container.mce-panel,
-.mce-edit-area.mce-container.mce-panel.mce-stack-layout-item.mce-last {
-  border: none;
-}
-iframe {
-  border: none;
-}
-iframe[id^='mce']{
-  box-shadow: 0.5px 0.5px 2px #ddd;
-}
+.mce-edit-area.mce-container.mce-panel.mce-stack-layout-item.mce-last
+{border: none;}
 
+html, body {height: 100%;}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif; }
+a {
+  &:hover {color: #395182;}
+  cursor: pointer;
+  color: #395182;
+}
+iframe {border: none;}
+iframe[id^='mce']{box-shadow: 0.5px 0.5px 2px #ddd;}
 
 .shs-side-nav {
   display: flex;
