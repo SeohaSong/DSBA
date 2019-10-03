@@ -849,6 +849,10 @@ export class DatabaseService {
       title: 'International Journal',
       contents: [
         {
+          content: "Junhong Kim, Minsik Park, Haedong Kim, Suhyoun Cho, and Pilsung Kang*.(2019) Insider threat detection based on user behavior modeling and novelty detection algorithms, Applied Science, 9(19), 4018. (SCIE)",
+          url: "https://www.mdpi.com/2076-3417/9/19/4018",
+        },
+        {
           content: "Junhong Kim, Jihoon Moon, Eenjun Hwang, Pilsung Kang*. (2019). Recurrent inception convolution neural network for multi short-term load forecasting, Energy & Buildings 194(1), 328-341. (SCIE)",
           url: "https://www.sciencedirect.com/science/article/pii/S0378778819308072?dgcid=author",
         },
