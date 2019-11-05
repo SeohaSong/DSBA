@@ -849,6 +849,10 @@ export class DatabaseService {
       title: 'International Journal',
       contents: [
         {
+          content: "Donghwa Kim, Pilsung Kang, Junhong Kim, Czang Yeob Kim, Jong-Ha Lee, Sangil Suh, Moon-Soo Lee.* Machine Learning Classification of First-Onset Drug-Naive MDD Using Structural MRI. IEEE Access 7,153977 - 153985.",
+          url: "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8880675",
+        },
+        {
           content: "Junhong Kim, Minsik Park, Haedong Kim, Suhyoun Cho, and Pilsung Kang*.(2019) Insider threat detection based on user behavior modeling and novelty detection algorithms, Applied Science, 9(19), 4018. (SCIE)",
           url: "https://www.mdpi.com/2076-3417/9/19/4018",
         },
@@ -1132,6 +1136,18 @@ export class DatabaseService {
       type: 'international-conference',
       title: 'International Conference',
       contents: [
+        {
+          content: "Junhong Kim, Hyungseok Kim, Pilsung Kang.* (2019) Draw A Deep Pattern - Temporal Convolution Neural Network Based Novelty Detection For Smartphone User Authentication From Drawing Patterns. INFORMS 2019 Annual Meeting, Seattle, WA, Oct. 20-23.",
+          url: null
+        },
+        {
+          content: "Seungwan Seo, Donghwa Kim, Pilsung Kang.* (2019) Intrusion Detection Based On Sequential Information Preserving Log Embedding Methods And Anomaly Detection Algorithms. INFORMS 2019 Annual Meeting, Seattle, WA, Oct. 20-23.",
+          url: null
+        },
+        {
+          content: "Heejeong Choi, Pilsung Kang.* (2019) Real-time Significant Wave Height Classification From Raw Ocean Images Based On Convolutional Neural Network. INFORMS 2019 Annual Meeting, Seattle, WA, Oct. 20-23.",
+          url: null
+        },
         {
           content: "Myeongjun Jang, Pilsung Kang.* (2018) Sentence Embedding Module Satisfying a Characteristic of Human Language Recognition. INFORMS 2018 Annual Meeting, Phoenix, AZ, Nov. 4-7.",
           url: null
