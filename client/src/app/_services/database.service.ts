@@ -103,78 +103,6 @@ export class DatabaseService {
         }
       ]
     },
-    // {
-    //   img: 'assets/img/researches/4.png',
-    //   title: 'Locally Linear Reconstruction for classification, regression, novelty detection, clustering, and missing value imputation',
-    //   contents: [{
-    //     contents: [
-    //       '개체 기반 학습(instance-based learning)은 사전에 모델 구축이 필요 없는 방식으로 k개의 유사 개체를 통해 판단하는 k-인접 이웃(k-nearest neighbor; k-NN) 알고리즘이 대표적임',
-    //       'k-NN의 경우 이웃 개체의 수인 k와 이들을 결합하는 가중치(weights)에 따라 성능이 크게 좌우됨',
-    //       'k의 수에 강건(robust)하며 주위 개체들과의 관계(local topology)를 고려하여 재구축 오차(reconstruction error)를 최소화하는 최적화 문제를 정의함',
-    //       '최적화 문제의 해(solution)은 어느 이웃이(which neighbor) 얼마나 중요한지(how important)에 대한 정보를 담고 있음',
-    //       '이 최적화 방법론을 분류(classification), 회귀(regression), 이상치 탐지(novelty detection), 군집화(clustering), 결측치 대치(missing value imputation) 등에 적용하여 성능을 향상시킴'
-    //     ]
-    //   }]
-    // },
-    // {
-    //   img: 'assets/img/researches/3.png',
-    //   title: 'Supervised Document Embedding & Korean Word Recognition',
-    //   contents: [
-    //     {
-    //       contents: [
-    //         '한글의 경우 영어에 비해 어휘사전과 형태소분석기의 완성도가 높지 않음',
-    //         '어휘사전 및 형태소 분석기의 완성도를 높이기 위해 단어를 정확하게 인식하는 것이 매우 중요함',
-    //         '부분 글자의 위치 정보를 고려하는 단어 인식 방법론인 KR-WordRank를 개발하여 문맥에 적합한 한글 단어 인식 성능을 향상시킴',
-    //         '또한 단어와 문서, 그리고 문서의 범주 정보를 포함하는 distribution representation 방법인 Supervised Paragraph Vector (SPV)를 개발하여 문서 분류 성능을 향상시킴'
-    //       ]
-    //     }
-    //   ]
-    // },
-    // {
-    //   img: 'assets/img/researches/2.png',
-    //   title: 'Industrial & Public Applications based on Structured Data',
-    //   contents: [
-    //     {
-    //       title: '반도체 공정의 가상 계측 모델 개발',
-    //       contents: [
-    //         '반도체 공정 FDC 설비 데이터를 입력으로 사용하여 계측 정보를 예측하는 가상 계측(virtual metrology) 모델을 Statistical & Machine Learning algorithms을 활용하여 개발',
-    //         '가상 계측 정보에 대한 예측 결과값과 함께 해당 값에 대한 신뢰도를 Novelty detection algorithms을 이용하여 추정'
-    //       ]
-    //     },
-    //     {
-    //       title: '키스트로크 기반 사용자 인증',
-    //       contents: [
-    //         '사용자의 타이핑 패턴을 활용하여 학습된 정상 사용자의 패턴과 유사할 경우에만 접속을 허가하는 2단계 인증 시스템 개발',
-    //         '패스워드, 자유로운 문자열, 다양한 입력기기, 다양한 입력 언어 등을 아우르는 통합 인증 방법론을 개발'
-    //       ]
-    //     }
-    //   ]
-    // },
-    // {
-    //   img: 'assets/img/researches/1.png',
-    //   title: 'Industrial & Public Applications based on Unstructured Data',
-    //   contents: [
-    //     {
-    //       title: 'SNS 데이터를 활용한 영화 흥행 예측',
-    //       contents: [
-    //         '영화 흥행 예측에 사용된 기존 정형 데이터에 SNS상에 해당 영화가 언급된 텍스트를 수집하고 이에 대한 감성분석을 실시하여 예측 모델의 입력 변수로 사용',
-    //         '기계학습 및 앙상블 기법을 이용하여 예측 성능 향상'
-    //       ]
-    //     },
-    //     {
-    //       title: '기술가치평가를 위한 유사 연구 제안서 판별',
-    //       contents: [
-    //         '신기술의 적정 가치를 평가하기 위해 기존의 국가연구수행과제 중 유사한 제안서를 텍스트마이닝을 통해 판별하는 방법론 개발',
-    //       ]
-    //     },
-    //     {
-    //       title: '의안 내용 기반 통과 여부 예측',
-    //       contents: [
-    //         '발의된 의안의 내용에 대한 텍스트 분석을 통해 어떤 의안이 통과되고 어떤 의안이 기각되는지를 예측하는 모델 구축',
-    //       ]
-    //     }
-    //   ]
-    // },
   ]
 
   projects = [
@@ -1039,7 +967,7 @@ export class DatabaseService {
       title: 'Domestic Journal',
       contents: [
         {
-          content: "양우식, 김형석, 김동화, 송서하, 강필성*. (2019+). CDN 환경에서의 동적 콘텐츠 캐싱을 위한 콘텐츠 뷰카운트 예측 및 인기 콘텐츠 판별, under review, 대한산업공학회지, Accepted for publication.",
+          content: "양우식, 김형석, 김동화, 송서하, 강필성*. (2019+). CDN 환경에서의 동적 콘텐츠 캐싱을 위한 콘텐츠 뷰카운트 예측 및 인기 콘텐츠 판별. 대한산업공학회지 45(5), 430-438.",
           url: null
         },
         {
@@ -1230,6 +1158,30 @@ export class DatabaseService {
       type: 'domestic-conference',
       title: 'Domestic Conference',
       contents: [
+        {
+          content: '이정훈, 김형석, 김동화, 조규원, 강필성. (2019) 로그 형식에 강건한 머신 러닝 기반 시스템 로그 이상 상태 탐지, 대한산업공학회 추계학술대회, 서울대학교, 서울, 11월 8일.',
+          url: null
+        },
+        {
+          content: '양우식, 이정훈, 최종현, 강필성. (2019) 정답 레이블 유무에 따른 선택적 뉴스 기사 감성 분석 모델 개발, 대한산업공학회 추계학술대회, 서울대학교, 서울, 11월 8일.',
+          url: null
+        },
+        {
+          content: '최종현, 강필성. (2019) 쟁점 사안에 대한 핵심 어휘 판별 및 시각화를 통한 언론사별 논조 분석, 대한산업공학회 추계학술대회, 서울대학교, 서울, 11월 8일.',
+          url: null
+        },
+        {
+          content: '이정호, 최희정, 손규빈, 노영빈, 강필성. (2019) Conv–LSTM 을 활용한 유의파고, 파향, 파주기 추정, 대한산업공학회 추계학술대회, 서울대학교, 서울, 11월 8일.',
+          url: null
+        },
+        {
+          content: '박중민, 김준홍, 김형석, 강필성. (2019) Temporal Convolutional Network를 활용한 단기 전력 수요 예측, 대한산업공학회 추계학술대회, 서울대학교, 서울, 11월 8일.',
+          url: null
+        },
+        {
+          content: '정민성, 최희정, 서승완, 손규빈, 박경찬, 강필성. (2019) 연상작용과 샴 네트워크를 통한 문장 유사도 판별 모델 개발, 대한산업공학회 추계학술대회, 서울대학교, 서울, 11월 8일.',
+          url: null
+        },
         {
           content: '김창엽, 박민식, 서승완, 장명준, 정민성, 강필성.(2018) 이상치 탐지 알고리즘을 활용한 시스템 및 네트워크 이상 행위 탐지, 한국데이터마이닝학회 추계학술대회, 서울대학교, 서울, 11월 30일.',
           url: null
