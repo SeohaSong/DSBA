@@ -107,6 +107,36 @@ export class DatabaseService {
 
   projects = [
     {
+      img: 'assets/img/projects/34.png',
+      term: '2019.12 ~ 0000.00',
+      partner: 'RTM & PSK',
+      title: 'AI기반 반도체 공정 이상탐지',
+      contents: [
+        {
+          contents: [
+            '반도체 장비 생산 기업 관점에서의 AI 기반 공정 이상감지 시스템 개발',
+            '제한된 데이터셋과 통계기반/단변량 분석을 양산데이터 추가 적용 및 AI 기반 분석 방법론으로 고도화',
+            '성능 고도화를 통한 비용 절감과 원인분석 기능 강화를 통한 현장 대응 속도 향상을 추구',
+          ]
+        }
+      ]
+    },
+    {
+      img: 'assets/img/projects/33.png',
+      term: '2019.06 ~ 2019.09',
+      partner: '포스코ICT',
+      title: 'AI기반 IT인프라 사전감지 모델 개발',
+      contents: [
+        {
+          contents: [
+            '시스템을 안정시시키 위해서는 실시간 모니터링 및 점검을 바탕으로 긴급상황에 대한 즉각적인 대응이 필요',
+            '서버의 로그를 바탕으로 실시간으로 이상상태를 탐지하는 인공지능 알고리즘을 개발하여 운영의 지능화 및 효율화 추구',
+            '로그 Parsing 유무에 따라 RNN/Markov Decision Process/RNN-AutoEncoder/CNN-AutoEncoder/Isolation Forest 등의 AI/ML 기반 이상상태 탐지 알고리즘 개발',
+          ]
+        }
+      ]
+    },
+    {
       img: 'assets/img/projects/32.png',
       term: '2019.09 ~ 2022.08',
       partner: '한국연구재단',
