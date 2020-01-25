@@ -15,15 +15,6 @@
         dist_path=client/dist
         cp -r $dist_path/browser/* $www_path
         rm -r $dist_path
-        cd $www_path
-        git checkout master
-        git add .
-        git commit -m "continue" || :
-        git push origin master
-        cd ..
-        git add .
-        git commit -m "continue" || :
-        git push origin master
     }
     opts="" n_arg=1
     cmd=$( set-argument "$opts" $n_arg $@ ) || { echo "$cmd"; return; }
