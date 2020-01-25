@@ -845,6 +845,10 @@ export class DatabaseService {
       title: 'International Journal',
       contents: [
         {
+          content: "Seungwan Seo, Czangyeob Kim, Haedong Kim, Kyounghyun Mo, Pilsung Kang*. (2020). Comparative Study of Deep Learning-Based Sentiment Classification. IEEE Access 8, 6861 - 6875.",
+          url: "https://ieeexplore.ieee.org/abstract/document/8948030",
+        },
+        {
           content: "Donghwa Kim, Pilsung Kang, Junhong Kim, Czang Yeob Kim, Jong-Ha Lee, Sangil Suh, Moon-Soo Lee.* Machine Learning Classification of First-Onset Drug-Naive MDD Using Structural MRI. IEEE Access 7,153977 - 153985.",
           url: "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8880675",
         },
